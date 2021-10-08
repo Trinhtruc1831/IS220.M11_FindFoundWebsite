@@ -13,6 +13,6 @@ This repository stores our solutions for all problems in the IS220.M11 - XÃ¢y dá
 |Order|    Member         |  ID        | Role 
 |:---:| :-----------:     | :--:       | :--: 
 |1    |    [Truc Trinh](https://github.com/Trinhtruc1831/)    |  19521059  | Member
-|2    |    [Thang Le](#)    |  19521059  | Member
+|2    |    [Thang Le](#)    |  19522200  | Member
 
 ## Status of repository
