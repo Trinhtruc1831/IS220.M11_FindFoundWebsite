@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\19521\\source\\repos\\IS220\\IS220\\IS220.csproj": {}
+    "C:\\Users\\19521\\source\\repos\\framework_IS220.M11_3\\IS220\\IS220\\IS220.csproj": {}
   },
   "projects": {
-    "C:\\Users\\19521\\source\\repos\\IS220\\IS220\\IS220.csproj": {
+    "C:\\Users\\19521\\source\\repos\\framework_IS220.M11_3\\IS220\\IS220\\IS220.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\19521\\source\\repos\\IS220\\IS220\\IS220.csproj",
+        "projectUniqueName": "C:\\Users\\19521\\source\\repos\\framework_IS220.M11_3\\IS220\\IS220\\IS220.csproj",
         "projectName": "IS220",
-        "projectPath": "C:\\Users\\19521\\source\\repos\\IS220\\IS220\\IS220.csproj",
+        "projectPath": "C:\\Users\\19521\\source\\repos\\framework_IS220.M11_3\\IS220\\IS220\\IS220.csproj",
         "packagesPath": "C:\\Users\\19521\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\19521\\source\\repos\\IS220\\IS220\\obj\\",
+        "outputPath": "C:\\Users\\19521\\source\\repos\\framework_IS220.M11_3\\IS220\\IS220\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\19521\\AppData\\Roaming\\NuGet\\NuGet.Config",
