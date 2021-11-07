@@ -14,7 +14,7 @@ namespace IS220.M11.Models
         public int ChatID { get; set; }
         public int ChUserID { get; set; }
         [ForeignKey("UserID")]
-        public accountModel acounts { get; set; }
+        public accountModel accounts { get; set; }
         [Display(Name = "Thời điểm chat")]
         public DateTime ChDate { get; set; }
         [Display(Name = "Nội dung chat")]
