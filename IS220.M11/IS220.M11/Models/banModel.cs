@@ -20,11 +20,11 @@ namespace IS220.M11.Models
         [Display(Name ="Ngày mở khóa")]
         public DateTime FreeDate {get; set;}
 
-        [ForeignKey("UserID")]
+        [ForeignKey("accountModel")]
         [Display(Name ="Mã tài khoản bị khóa")]
         public int BedUserID {get; set;}
 
-        [ForeignKey("UserID")]
+        [ForeignKey("accountModel")]
         [Display(Name ="Mã tài khoản khóa")]
         public int BUserID {get; set;}
         public accountModel accounts {get; set;}
