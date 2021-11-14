@@ -10,13 +10,13 @@ namespace IS220.M11.Models
     public class interestModel
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        /*[DatabaseGenerated(DatabaseGeneratedOption.Identity)]*/
         public int InPostID { get; set; }
         [ForeignKey("PostID")]
         public postModel posts{ get; set; }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        /*[DatabaseGenerated(DatabaseGeneratedOption.Identity)]*/
         public string InUserID { get; set; }
         [ForeignKey("UserID")]
         public accountModel accounts { get; set; }
