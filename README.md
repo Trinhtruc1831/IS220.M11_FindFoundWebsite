@@ -16,3 +16,4 @@ This repository stores our solutions for all problems in the IS220.M11 - XÃ¢y dá
 |2    |    [Thang Le](https://github.com/huuthang196)    |  19522200  | Member
 
 ## Status of repository
+1. Demo home page: https://trinhtruc1831.github.io/findnfound.github.io/
