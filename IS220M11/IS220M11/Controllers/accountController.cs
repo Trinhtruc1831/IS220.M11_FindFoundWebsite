@@ -19,5 +19,19 @@ namespace IS220M11.Controllers
         {
             return _context.accounts;
         }
+        public string GetEmail()
+        {
+            var query = from st in _context.accounts
+                        select new
+                        {
+                            email = st.UEmail
+                        };
+            List<string> EmailList = new List<string>();
+            foreach (var ac in query)
+            {
+                EmailList.Add(ac.email);
+            }
+            return EmailList[1];
+        }
     }
 }

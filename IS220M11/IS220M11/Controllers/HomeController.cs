@@ -1,4 +1,5 @@
-﻿using IS220M11.Models;
+﻿using IS220M11.Data;
+using IS220M11.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,18 +12,28 @@ namespace IS220M11.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly FindFoundContext _context;
+        public HomeController(FindFoundContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var query = from post in _context.posts
+                        join pic in _context.pictures on post.PostID equals pic.IPostID
+                        where pic.IOrder == 1
+                        select new
+                        {
+                            price = post.PPrice,
+                            tit = post.PTitle,
+                            tnpic = pic.ILink
+                        };
+            List<object> a = query.ToList<object>();
+            return View(a);
         }
 
+        
         public IActionResult Privacy()
         {
             return View();

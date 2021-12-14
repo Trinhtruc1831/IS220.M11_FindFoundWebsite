@@ -15,7 +15,7 @@ namespace IS220M11.Models
 		public int PUserID { get; set; }
 		[ForeignKey("UserID")]
 		public accountModel accounts { get; set; }
-		public string PContent { get; set; }
+		public string PTitle { get; set; }
 		public int PPrice { get; set; }
 		public int Heart { get; set; }
 		public int PStatus { get; set; }
