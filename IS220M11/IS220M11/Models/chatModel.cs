@@ -13,8 +13,8 @@ namespace IS220M11.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ChatID { get; set; }
         public int ChUserID { get; set; }
-        [ForeignKey("UserID")]
-        public accountModel accounts { get; set; }
+        [ForeignKey("ChUserID")]
+        public accountModel account { get; set; }
         [Display(Name = "Thời điểm chat")]
         public DateTime ChDate { get; set; }
         [Display(Name = "Nội dung chat")]

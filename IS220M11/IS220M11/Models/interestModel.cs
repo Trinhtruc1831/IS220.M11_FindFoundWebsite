@@ -12,14 +12,14 @@ namespace IS220M11.Models
         [Key]
         /*[DatabaseGenerated(DatabaseGeneratedOption.Identity)]*/
         public int InPostID { get; set; }
-        [ForeignKey("PostID")]
-        public postModel posts{ get; set; }
+        [ForeignKey("InPostID")]
+        public postModel post{ get; set; }
 
         [Key]
         /*[DatabaseGenerated(DatabaseGeneratedOption.Identity)]*/
-        public string InUserID { get; set; }
-        [ForeignKey("UserID")]
-        public accountModel accounts { get; set; }
+        public int InUserID { get; set; }
+        [ForeignKey("InUserID")]
+        public accountModel account{ get; set; }
 
     }
 }

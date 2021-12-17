@@ -13,8 +13,8 @@ namespace IS220M11.Models
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ImageID { get; set; }
 		public int IPostID { get; set; }
-		[ForeignKey("PostID")]
-		public postModel posts { get; set; }
+		[ForeignKey("IPostID")]
+		public postModel post { get; set; }
 		public string ILink { get; set; }
 		public int IOrder { get; set; }
 	}

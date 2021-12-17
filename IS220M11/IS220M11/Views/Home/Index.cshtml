@@ -28,7 +28,7 @@
                     @{
                         var utf8 = System.Text.Encoding.UTF8;
                         string title = @item.GetType().GetProperty("tit").GetValue(item, null).ToString();
-                        int lentit = title.Length;
+                        int lentit = title.Length; ;
                         if (lentit > 30)
                         {
                             title = title.Substring(0, 27) + " ....";
@@ -38,7 +38,7 @@
                     }
                     <img class="card-img-top" src="@item.GetType().GetProperty("tnpic").GetValue(item, null)" alt="..." />
                     <!-- Product details-->
-                    <div class="card-body p-4"style="height:300px">
+                    <div class="card-body p-4" style="height:300px">
                         <div class="text-center">
                             <!-- Product name-->
                             <a href="post.html" class="fw-bolder h-60px h5" style="color: #444;">@title</a>
@@ -58,10 +58,30 @@
     </div>
 </section>
 <!-- Chatbox Section-->
+<div class="container">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-2">User</div>
+        <div class="col-4"><input type="text" id="userInput" /></div>
+    </div>
+    <div class="row">
+        <div class="col-2">Message</div>
+        <div class="col-4"><input type="text" id="messageInput" /></div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-6">
+            <input type="button" id="sendButton" value="Send Message" />
+        </div>
+    </div>
+</div>
 <section class="page-section text-white mb-0" id="chatbox">
     <div class="containerchat" style="background-size: 100% 100%; background-image: url('public/assets/img/chatbox.png')">
+        <ul class="ul-chat" id="messagesList"></ul>
+
+
         <!-- About Section Heading-->
-        <ul class="ul-chat">
+       @* <ul class="ul-chat">
             <li class="li-chat"><a href="javascript:void(0)">TrinhTruc</a>: Tôi đang tìm một cái chụp đèn thủy tinh có tuổi đời hơn 20. Tôi sẽ trả 1xxxxxxx!</li>
             <li class="li-chat"><a href="javascript:void(0)">ThangHuuLe</a>: Ai còn giữ chai coca phiên bản thủy tinh nắp đỏ giới hạn xin liên hệ lại với mình!</li>
             <li class="li-chat"><a href="javascript:void(0)">CoGaiXiTin</a>: Cần bộ bàn trà gốm hoa văn xanh, ai có liên hệ tôi!</li>
@@ -75,7 +95,7 @@
                 <input class="textbox" type="text" id="fname" name="fname">
                 <input style="width:9%;background-color: #a88a64; border-width: 2px; color: #f5f3f3ef;border-radius: 8px;margin-bottom: 15px;padding-bottom: 0.6%;padding-left: 0.9%;padding-top: 0.5%;" type="submit" value="Submit">
             </p>
-        </form>
+        </form>*@
     </div>
 </section>
 <!-- Blank -->
@@ -108,3 +128,5 @@
     </div>
     </div>
 </section>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>

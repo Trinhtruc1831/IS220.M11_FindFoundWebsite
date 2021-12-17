@@ -12,21 +12,20 @@ namespace IS220M11.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]        
         public int ReportID {get; set;}
-       
-
         [Display(Name ="Lý do báo cáo")]
-        [StringLength(40, ErrorMessage ="Nội dung báo cáo phải < 200 kí tự")]
+        [StringLength(40, ErrorMessage ="Lý do báo cáo phải < 200 kí tự")]
         public string RReason {get; set;}
         [Display(Name ="Ngày báo cáo")]
         public DateTime RDate {get; set;}
 
-        [ForeignKey("UserID")]
         [Display(Name ="Mã tài khoản báo cáo")]
         public int RUserID {get; set;}
-        [ForeignKey("UserID")]
+        [ForeignKey("RUserID")]
+        
         [Display(Name ="Mã tài khoản bị báo cáo")]
         public int RedUserID {get; set;}
-        public accountModel accounts {get; set;}
+        [ForeignKey("RedUserID")]
+        public accountModel account {get; set;}
         
     }
 }

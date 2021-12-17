@@ -13,8 +13,8 @@ namespace IS220M11.Models
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int PostID { get; set; }
 		public int PUserID { get; set; }
-		[ForeignKey("UserID")]
-		public accountModel accounts { get; set; }
+		[ForeignKey("PUserID")]
+		public accountModel account { get; set; }
 		public string PTitle { get; set; }
 		public int PPrice { get; set; }
 		public int Heart { get; set; }
