@@ -12,7 +12,6 @@ namespace IS220M11.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserID {get; set;}
-        
         public string UName {get; set;}
         public string UPass {get; set;}
         public int UType {get; set;}
@@ -22,6 +21,10 @@ namespace IS220M11.Models
         public int Hideinfo {get; set;}
         public ICollection<banModel> bans {get; set;}
         public ICollection<reportModel> reports {get; set;}
+        public ICollection<chatModel> chats { get; set; }
         public ICollection<notiModel> notis {get; set;}
+        public ICollection<interestModel> interests { get; set; }
+        public ICollection<postModel> posts { get; set; }
+        public ICollection<commentModel> comments { get; set; }
     }
 }

@@ -19,9 +19,10 @@ namespace IS220M11.Models
         [Display(Name ="Nội dung thông báo")]
         public string NContent {get; set;}
 
-        [ForeignKey("UserID")]
+        
         [Display(Name ="Mã tài khoảng thông báo")]
         public int NUserID {get; set;}
-        public accountModel accounts {get; set;}
+        [ForeignKey("NUserID")]
+        public accountModel account {get; set;}
     }
 }

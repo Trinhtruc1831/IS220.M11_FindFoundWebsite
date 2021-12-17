@@ -13,11 +13,11 @@ namespace IS220M11.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CommentID { get; set; }
         public int CPostID { get; set; }
-        [ForeignKey("PostID")]
-        public postModel posts { get; set; }
+        [ForeignKey("CPostID")]
+        public postModel post { get; set; }
         public int CUserID { get; set; }
-        [ForeignKey("UserID")]
-        public accountModel acounts { get; set; }
+        [ForeignKey("CUserID")]
+        public accountModel account { get; set; }
         [Display(Name = "Thời điểm comment")]
         public DateTime CDate { get; set; }
         [Display(Name = "Nội dung comment")]
