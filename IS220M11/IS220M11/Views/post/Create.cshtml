@@ -1,0 +1,46 @@
+@model IS220M11.Models.picpostModel
+@{
+    ViewData["Title"] = "Create";
+}
+<section class="page-section py-5" style="margin-top: rem;">
+    
+        <div class="x_title" style="margin-left: 7%;">
+            <h2 style="color: black;">Thêm sản phẩm mới </h2>
+            
+            <div class="clearfix"></div>
+        </div>
+            
+        <div class="col-md-4">
+            <br />
+            <form method="post" enctype="multipart/form-data" asp-action="Create">
+                <div asp-validation-sumary="ModelOnly" class="text-danger"></div>               
+                <div class="form-group">
+                    <label asp-for="PTitle" class="control-label" style="color: black;">Tên sản phẩm</label>
+                    <input asp-for="PTitle" class="form-control" />
+                    <span asp-validation-for="PTitle" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    @* @Html.LabelFor(model =>model.ILink, new {@class = "control-label col-md-2"}) *@
+                    <label asp-for="ILink" class="control-label" style="color: black;">Hình ảnh sản phẩm</label>
+                    <<input type="file" name="ILink" multiple required>
+                    <span asp-validation-for="ILink" class="text-danger"></span>
+                </div> 
+
+                <div class="form-group">
+                    <label asp-for="PPrice" class="control-label" style="color: black;">Giá sản phẩm</label>
+                    <input asp-for="PPrice" class="form-control" />
+                    <span asp-validation-for="PPrice" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Thêm</button>
+                    <button class="btn btn-primary" type="reset">Reset</button>
+                    <a asp-action="Index" class="btn btn-success">Danh sách sản phẩm</a>
+                    @* <a href="#" class="btn btn-success">Danh sách sản phẩm</a> *@
+                </div>
+                
+            </form>
+        </div>
+    
+</section>
