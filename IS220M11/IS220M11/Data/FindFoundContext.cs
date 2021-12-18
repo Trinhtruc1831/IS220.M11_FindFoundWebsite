@@ -19,6 +19,7 @@ namespace IS220M11.Data
         public DbSet<notiModel> notis { get; set; }
         public DbSet<pictureModel> pictures { get; set; }
         public DbSet<postModel> posts { get; set; }
+        public DbSet<picpostModel> picposts { get; set; }
         public DbSet<reportModel> reports { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
