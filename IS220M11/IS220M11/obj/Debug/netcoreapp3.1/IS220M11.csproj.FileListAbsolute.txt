@@ -93,3 +93,4 @@ C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\ne
 C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\IS220M11.genruntimeconfig.cache
 C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll
 C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\account\Login.cshtml.g.cs
