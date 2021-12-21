@@ -1,5 +1,6 @@
 ﻿using IS220M11.Data;
 using IS220M11.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -17,7 +18,31 @@ namespace IS220M11.Controllers
         {
             _context = context;
         }
-
+        [Authorize(Roles = "Admin")]
+        public IActionResult testAd()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult AdminIndex()
+        {
+            return View();
+        }
+        [Authorize(Roles = "User")]
+        public IActionResult UserIndex()
+        {
+            var query = from post in _context.posts
+                        join pic in _context.pictures on post.PostID equals pic.IPostID
+                        where pic.IOrder == 1
+                        select new
+                        {
+                            price = post.PPrice,
+                            tit = post.PTitle,
+                            tnpic = pic.ILink
+                        };
+            List<object> a = query.ToList<object>();
+            return View(a);
+        }
         public IActionResult Index()
         {
             var query = from post in _context.posts

@@ -22,7 +22,7 @@ connection.start().then(function () {
 });
 
 document.getElementById("sendButton").addEventListener("click", function (event) {
-    var user = document.getElementById("userInput").value;
+    var user = document.getElementById("userInput").innerHTML;
     var message = document.getElementById("messageInput").value;
     connection.invoke("SendMessage", user, message).catch(function (err) {
         return console.error(err.toString());
