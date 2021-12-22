@@ -93,6 +93,7 @@ C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\ne
 C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\IS220M11.genruntimeconfig.cache
 C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll
 C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\bin\Debug\netcoreapp3.1\libman.json
+<<<<<<< HEAD
 D:\Hữu Thắng\FRAMEWORK\framework_IS220.M11_3\IS220M11\IS220M11\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\Hữu Thắng\FRAMEWORK\framework_IS220.M11_3\IS220M11\IS220M11\bin\Debug\netcoreapp3.1\appsettings.json
 D:\Hữu Thắng\FRAMEWORK\framework_IS220.M11_3\IS220M11\IS220M11\bin\Debug\netcoreapp3.1\libman.json
@@ -290,3 +291,6 @@ C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Deb
 C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutUser.cshtml.g.cs
 C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\Home\AdminIndex.cshtml.g.cs
 C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutAdmin.cshtml.g.cs
+=======
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\account\Login.cshtml.g.cs
+>>>>>>> 62e40faea64d1c82fd5dc4e3c255f3ad807f7c9d
