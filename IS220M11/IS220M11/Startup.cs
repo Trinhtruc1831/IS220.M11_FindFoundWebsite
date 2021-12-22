@@ -47,16 +47,15 @@ namespace IS220M11
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+            
             services.AddDistributedMemoryCache();
-
             services.AddSession(options =>
             {
-                options.Cookie.Name = "log";
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
-                options.Cookie.IsEssential = true;
+                /*options.Cookie.Name = "log";*/
+                options.IdleTimeout = TimeSpan.FromMinutes(15);
+                /*options.Cookie.IsEssential = true;*/
             });
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

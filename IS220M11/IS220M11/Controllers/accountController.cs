@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
 
 namespace IS220M11.Controllers
 {
@@ -49,7 +51,7 @@ namespace IS220M11.Controllers
             return query.First().r;
         }
         [HttpPost]
-        public IActionResult Login(string username, string pass)
+        public IActionResult Login(/*HttpContext contextus,*/ string username, string pass)
         {
             if (!string.IsNullOrEmpty(username) && string.IsNullOrEmpty(pass))
             {
@@ -76,55 +78,27 @@ namespace IS220M11.Controllers
                 }, CookieAuthenticationDefaults.AuthenticationScheme);
                 var principal = new ClaimsPrincipal(identity);
                 var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-                TempData["username"] = username;
+                /*set value username into  session*/
+                HttpContext.Session.SetString("username", username);
                 return RedirectToAction("UserIndex", "Home");
             }
             return View();
         }
 
-        /*[HttpPost]*/
-        /*public IActionResult Login(string username, string pass)
+        /*public void SetUsnSession(HttpContext context,string username)
         {
-            if (!string.IsNullOrEmpty(username) && string.IsNullOrEmpty(pass))
+            // Lấy ISession
+            var session = context.Session;
+            string key_access = "usn";
+            string usnval = username;
+            
+            string testnull = session.GetString(key_access);
+            if (testnull == null)
             {
-                return RedirectToAction("Login");
+                usnval = "Home";
             }
-            ClaimsIdentity identity = null;
-            bool isAuthenticate = false;
-            if (IsPass(username, pass))
-            {
-                if (RoleUser(username, pass) == 0)
-                {
-                    identity = new ClaimsIdentity(new[]
-                    {
-                    new Claim(ClaimTypes.Name,username),
-                    new Claim(ClaimTypes.Role,"User")
-                }, CookieAuthenticationDefaults.AuthenticationScheme);
-                    isAuthenticate = true;
-
-                }
-                if (RoleUser(username, pass) == 1)
-                {
-                    identity = new ClaimsIdentity(new[]
-                    {
-                    new Claim(ClaimTypes.Name,username),
-                    new Claim(ClaimTypes.Role,"Admin")
-                }, CookieAuthenticationDefaults.AuthenticationScheme);
-                    isAuthenticate = true;
-
-                }
-                if (isAuthenticate)
-                {
-                    var principal = new ClaimsPrincipal(identity);
-                    var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-                    return RedirectToAction("UserIndex", "Home", new { username = username });
-                    return RedirectToAction("UserIndex", "Home");
-                }
-            }
-            return View();
+            session.SetString(key_access, usnval);
         }*/
-
-        /**************Account*****************/
 
 
     }
