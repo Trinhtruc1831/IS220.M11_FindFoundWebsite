@@ -23,6 +23,11 @@ namespace IS220M11.Controllers
         }
         public IActionResult Login()
         {
+            /*HttpContext.Session.Clear();*/
+            foreach (var cookie in Request.Cookies.Keys)
+            {
+                Response.Cookies.Delete(cookie);
+            }
             return View();
         }
         public bool IsPass(string username, string pass)
@@ -51,7 +56,7 @@ namespace IS220M11.Controllers
             return query.First().r;
         }
         [HttpPost]
-        public IActionResult Login(/*HttpContext contextus,*/ string username, string pass)
+        public async Task<IActionResult> Login(string username, string pass)
         {
             if (!string.IsNullOrEmpty(username) && string.IsNullOrEmpty(pass))
             {
@@ -77,28 +82,25 @@ namespace IS220M11.Controllers
                     new Claim(ClaimTypes.Role,"User")
                 }, CookieAuthenticationDefaults.AuthenticationScheme);
                 var principal = new ClaimsPrincipal(identity);
-                var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                var props = new AuthenticationProperties();
+                HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, props).Wait();
                 /*set value username into  session*/
                 HttpContext.Session.SetString("username", username);
                 return RedirectToAction("UserIndex", "Home");
             }
             return View();
         }
-
-        /*public void SetUsnSession(HttpContext context,string username)
+        public async Task<IActionResult> Logout()
         {
-            // Lấy ISession
-            var session = context.Session;
-            string key_access = "usn";
-            string usnval = username;
-            
-            string testnull = session.GetString(key_access);
-            if (testnull == null)
+            Response.Cookies.Delete(".AspNetCore.Cookies", new CookieOptions()
             {
-                usnval = "Home";
-            }
-            session.SetString(key_access, usnval);
-        }*/
+                Secure = true,
+            });
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index","Home");
+        }
+
+
 
 
     }
