@@ -1,4 +1,8 @@
-﻿<br>
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+<br>
 <br>
 
 <h1 style="font-weight: bolder;font-family: 'Nanum Gothic', sans-serif;color: #a88a64;font-size: 35pt;">Login</h1>
@@ -7,10 +11,10 @@
     <div class="container">
         <input class="textbox" style="height: 45px;width: 60%;" type="text" placeholder="Enter username" name="username">
         <input class="textbox" style="height: 45px;width: 60%;" type="password" id="myInput" placeholder="Enter password" name="pass">
-@*        <p style="color: #886c48;"><input type="checkbox"> Show Password</p>*@
+        @*        <p style="color: #886c48;"><input type="checkbox"> Show Password</p>*@
         <!-- Fake button -->
         <button class="btn btn-primary" style="height: 45px;width: 60%" type="submit">Login</button>
-        
+
         <!-- Real button -->
         <!-- <button href="" style="height: 45px;width: 60%;" type="submit" name="btnLogin" class="btn btn-primary">Login</button> -->
         <p>

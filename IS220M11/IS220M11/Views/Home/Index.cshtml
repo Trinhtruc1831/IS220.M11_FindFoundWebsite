@@ -3,104 +3,101 @@
 @model List<object>
 @{
     ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
 }
 
-<br>
-<br>
-
-<header class="text-white text-center">
-    <div class="container d-flex align-items-center flex-column ">
-        <!-- Masthead Avatar Image-->
-        <img id=logo class="masthead-avatar mb-5" src="~/public/assets/img/logo.png" alt="..." width="100" />
-
-    </div>
-</header>
-</div>
-<!-- Recommeded Section-->
-<section class="page-section py-5">
-    <!-- Flickity HTML init -->
-
-    <div class="gallery js-flickity" style="margin-left: 10%;margin-right: 10%">
-        @foreach (var item in Model)
-        {
-            <div class="gallery-cell" style="margin-left: 20px;margin-right: 10px">
-                <div class="card h-460px" style="width: 200px;height: 300px; right: 230% !important;">
-                    <!-- Product image-->
-                    @{
-                        var utf8 = System.Text.Encoding.UTF8;
-                        string title = @item.GetType().GetProperty("tit").GetValue(item, null).ToString();
-                        int lentit = title.Length; ;
-                        if (lentit > 30)
-                        {
-                            title = title.Substring(0, 27) + " ....";
-                            byte[] utfBytes = utf8.GetBytes(title);
-                            title = utf8.GetString(utfBytes);
-                        }
-                    }
-                    <img class="card-img-top" src="@item.GetType().GetProperty("tnpic").GetValue(item, null)" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4" style="height:300px">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <a href="post.html" class="fw-bolder h-60px h5" style="color: #444;">@title</a>
-                        </div>
-                        <div class="text-center">
-                            <!-- Product price-->
-                            <p>GKĐ: @item.GetType().GetProperty("price").GetValue(item, null) vnđ</p>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Details</a></div>
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
-</section>
-<!-- Chatbox Section-->
-
-<section class="page-section text-white mb-0" id="chatbox">
-    <div class="containerchat" style="background-size: 100% 100%; background-image: url('public/assets/img/chatbox.png')">
-        <ul class="ul-chat" id="messagesList"></ul>
-        <form style="margin-top: 3%">
-            <p style="margin-left: 3.1%">
-                <input class="textbox" type="text" id="messageInput">
-                <input style="width:9%;background-color: #a88a64; border-width: 2px; color: #f5f3f3ef;border-radius: 8px;margin-bottom: 15px;padding-bottom: 0.6%;padding-left: 0.9%;padding-top: 0.5%;" type="submit" id="sendButton" value="Submit">
-            </p>
-        </form>
-    </div>
-</section>
-
-
-<!-- Blank -->
-<section class="page-section text-white mb-0" style="background-size: 100% 100%; background-image: url('public/assets/img/plank.png');  " id="chatbox"></section>
-<!-- About Section-->
-<section class="page-section text-white mb-0" style="background-size: 100% 100%; background-image: url('public/assets/img/about.png');  " id="about">
-    <div class="container">
-        <!-- About Section Heading-->
-        <h5 class="page-section-heading text-center text-light text-uppercase " style="font-family: 'Caveat', cursive; font-size: 3.5rem;margin-top: 150px">About us</h5>
-
-        <!-- About Section Content-->
-        <div class="row">
-            <div class="col-12">
-                <p class="lead text-light" style="text-align: center; font-family: 'Caveat', cursive; font-size: 3rem;  ">We are relaxing, not doing anything special, yet content with ourselves.</p>
-            </div>
+<div class="container">
+    <header class="text-white text-center">
+        <div class="container d-flex align-items-center flex-column ">
+            <!-- Masthead Avatar Image-->
+            <img id=logo class="masthead-avatar mb-5" src="~/public/assets/img/logo.png" alt="..." width="100" />
 
         </div>
+    </header>
+</div>
+    <!-- Recommeded Section-->
+    <section class="page-section py-5">
+        <!-- Flickity HTML init -->
 
+        <div class="gallery js-flickity" style="margin-left: 10%;margin-right: 10%">
+            @foreach (var item in Model)
+            {
+                <div class="gallery-cell" style="margin-left: 20px;margin-right: 10px">
+                    <div class="card h-460px" style="width: 200px;height: 300px; right: 230% !important;">
+                        <!-- Product image-->
+                        @{
+                            var utf8 = System.Text.Encoding.UTF8;
+                            string title = @item.GetType().GetProperty("tit").GetValue(item, null).ToString();
+                            int lentit = title.Length; ;
+                            if (lentit > 30)
+                            {
+                                title = title.Substring(0, 27) + " ....";
+                                byte[] utfBytes = utf8.GetBytes(title);
+                                title = utf8.GetString(utfBytes);
+                            }
+                        }
+                        <img class="card-img-top" src="@item.GetType().GetProperty("tnpic").GetValue(item, null)" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4" style="height:300px">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <a href="post.html" class="fw-bolder h-60px h5" style="color: #444;">@title</a>
+                            </div>
+                            <div class="text-center">
+                                <!-- Product price-->
+                                <p>GKĐ: @item.GetType().GetProperty("price").GetValue(item, null) vnđ</p>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Details</a></div>
+                        </div>
+                    </div>
+                </div>
+            }
+        
+    </section>
+    <!-- Chatbox Section-->
     </div>
-</section>
-<!-- Donate Section-->
-<section class="page-section" id="donate">
-    <div class="container">
-        <!-- Donate Section Heading-->
-        <h2 class=" text-center text-secondary mb-0" style="font-size: 1.5rem;">Buy us a coffee ☕</h2>
-        <!-- Icon Divider-->
-        <br>
-        <br>
-        <img src="public/assets/img/donate.png" alt="Girl in a jacket" style="width:100px;" class="center">
-    </div>
+        <section class="page-section text-white mb-0" id="chatbox">
+            <div class="containerchat" style="background-size: 100% 100%; background-image: url('/public/assets/img/chatbox.png')">
+                <ul class="ul-chat" id=""></ul>
+                <p style="margin-left: 3.1%">
+                    <input class="textbox" type="text" id="messageInput" />
+                    <a href="@Url.Action("Login", "account")"><input style="width:9%;background-color: #a88a64; border-width: 2px; color: #f5f3f3ef;border-radius: 8px;margin-bottom: 15px;padding-bottom: 0.6%;padding-left: 0.9%;padding-top: 0.5%;" type="button" value="Send" /></a>
+                </p>
+            </div>
+        </section>
+
+
+        <!-- Blank -->
+        <section class="page-section text-white mb-0" style="background-size: 100% 100%; background-image: url('public/assets/img/plank.png');  " id="chatbox"></section>
+        <!-- About Section-->
+        <section class="page-section text-white mb-0" style="background-size: 100% 100%; background-image: url('public/assets/img/about.png');  " id="about">
+            <div class="container">
+                <!-- About Section Heading-->
+                <h5 class="page-section-heading text-center text-light text-uppercase " style="font-family: 'Caveat', cursive; font-size: 3.5rem;margin-top: 150px">About us</h5>
+
+                <!-- About Section Content-->
+                <div class="row">
+                    <div class="col-12">
+                        <p class="lead text-light" style="text-align: center; font-family: 'Caveat', cursive; font-size: 3rem;  ">We are relaxing, not doing anything special, yet content with ourselves.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- Donate Section-->
+        <section class="page-section" id="donate">
+            <div class="container">
+                <!-- Donate Section Heading-->
+                <h2 class=" text-center text-secondary mb-0" style="font-size: 1.5rem;">Buy us a coffee ☕</h2>
+                <!-- Icon Divider-->
+                <br>
+                <br>
+                <img src="public/assets/img/donate.png" alt="Girl in a jacket" style="width:100px;" class="center">
+            </div>
     </div>
 </section>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>

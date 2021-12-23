@@ -33,6 +33,7 @@ namespace IS220M11.Controllers
                         where pic.IOrder == 1
                         select new
                         {
+                            postid = post.PostID,
                             price = post.PPrice,
                             tit = post.PTitle,
                             tnpic = pic.ILink

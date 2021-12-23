@@ -277,7 +277,6 @@ C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Deb
 C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
-C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\IS220M11.RazorTargetAssemblyInfo.cache
 C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\IS220M11.RazorTargetAssemblyInfo.cs
 C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\IS220M11.Views.pdb
@@ -290,3 +289,4 @@ C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Deb
 C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutUser.cshtml.g.cs
 C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\Home\AdminIndex.cshtml.g.cs
 C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutAdmin.cshtml.g.cs
+C:\Users\19521\source\repos\FRRK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\post\Post.cshtml.g.cs

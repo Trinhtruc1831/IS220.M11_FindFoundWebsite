@@ -18,20 +18,20 @@ namespace IS220M11.Controllers
         {
             _context = context;
         }
-        public IQueryable<object> GetPostTit()
+        /*public IQueryable<object> GetPostTit()
         {
             var query = from post in _context.posts
                         join pic in _context.pictures on post.PostID equals pic.IPostID
                         where pic.IOrder == 1
                         select new
                         {
+                            postid = post.PostID,
                             price = post.PPrice,
                             tit = post.PTitle,
                             tnpic = pic.ILink
                         };
-            List<object> a = query.ToList<object>();
             return query;
-        }
+        }*/
 
         public IActionResult Create()
         {
@@ -63,6 +63,42 @@ namespace IS220M11.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        public IActionResult Post(int postId)
+        {
+            var query = from post in _context.posts
+                        join pic in _context.pictures on post.PostID equals pic.IPostID
+                        where pic.IOrder == 1
+                        select new
+                        {
+                            postid = post.PostID,
+                            price = post.PPrice,
+                            tit = post.PTitle,
+                            tnpic = pic.ILink
+                        };
+            TempData["postId"] = postId;
+            List<object> a = query.ToList<object>();
+            return View(a);
+
+
+        }
+        public IActionResult UserIndex()
+        {
+            var query = from post in _context.posts
+                        join pic in _context.pictures on post.PostID equals pic.IPostID
+                        where pic.IOrder == 1
+                        select new
+                        {
+                            postid = post.PostID,
+                            price = post.PPrice,
+                            tit = post.PTitle,
+                            tnpic = pic.ILink
+                        };
+            /*Get username session*/
+            ViewData["username"] = HttpContext.Session.GetString("username");
+            List<object> a = query.ToList<object>();
+            return View(a);
+        }
+
 
     }
 

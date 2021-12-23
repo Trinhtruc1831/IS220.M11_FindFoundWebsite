@@ -33,7 +33,7 @@
     <!-- Masthead header-->
     <!-- Music Section-->
 
-    <div class="container">
+    <div class="masthead text-white text-center">
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top " id="mainNav">
             <div class="container">
                 <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="~/public/assets/img/pagetop.png" alt="logo" title="Logo"></a>
@@ -41,16 +41,17 @@
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class=" collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a href="@Url.Action("Index", "Home")" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">Home</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#donate">Donate</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a href="@Url.Action("Login", "account")" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" >Login</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a href="@Url.Action("Login", "account")" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">Login</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+     </div>
         <main class="masthead text-white text-center">
             @RenderBody()
         </main>
@@ -67,7 +68,6 @@
 
         <!-- Bootstrap core JS-->
         <!-- audio.js -->
-        
         <!-- <script src="public/js/audio.js"> </script> -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -82,6 +82,6 @@
         <script src="~/public/js/searchNav.js"></script>
         <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
         <script src="~/public/js/flickity.pkgd.min.js"></script>
-    
+
 </body>
 </html>
