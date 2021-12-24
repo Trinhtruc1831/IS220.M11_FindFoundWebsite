@@ -189,3 +189,5 @@ D:\Hữu Thắng\FRAMEWORK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\net
 D:\Hữu Thắng\FRAMEWORK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\IS220M11.dll
 D:\Hữu Thắng\FRAMEWORK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\IS220M11.pdb
 D:\Hữu Thắng\FRAMEWORK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\IS220M11.genruntimeconfig.cache
+D:\Hữu Thắng\FRAMEWORK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\post\Delete.cshtml.g.cs
+D:\Hữu Thắng\FRAMEWORK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\post\Detail.cshtml.g.cs

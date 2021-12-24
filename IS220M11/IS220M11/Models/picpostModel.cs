@@ -15,9 +15,13 @@ namespace IS220M11.Models
 		// public int PUserID { get; set; }
 		// [ForeignKey("PUserID")]
 		// public accountModel account { get; set; }
+        // public int IPostID { get; set; }
+		// [ForeignKey("IPostID")]
+		// public postModel post { get; set; }
 		public string PTitle { get; set; }
         public string ILink { get; set; }
-		public int PPrice { get; set; }
-		public ICollection<pictureModel> pictures { get; set; }
+		// public ICollection<pictureModel> pictures { get; set; }
+        public int PPrice { get; set; }
+        // public ICollection<picpostModel> posts {get; set;}
 	}
 }

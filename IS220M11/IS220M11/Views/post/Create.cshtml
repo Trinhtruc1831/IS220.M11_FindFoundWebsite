@@ -10,10 +10,10 @@
             <div class="clearfix"></div>
         </div>
             
-        <div class="col-md-4">
+        <div class="col-md-6">
             <br />
-            <form method="post" enctype="multipart/form-data" asp-action="Create">
-                <div asp-validation-sumary="ModelOnly" class="text-danger"></div>               
+            <form asp-action="Create">
+                @* <div asp-validation-sumary="ModelOnly" class="text-danger"></div>                *@
                 <div class="form-group">
                     <label asp-for="PTitle" class="control-label" style="color: black;">Tên sản phẩm</label>
                     <input asp-for="PTitle" class="form-control" />
@@ -23,7 +23,7 @@
                 <div class="form-group">
                     @* @Html.LabelFor(model =>model.ILink, new {@class = "control-label col-md-2"}) *@
                     <label asp-for="ILink" class="control-label" style="color: black;">Hình ảnh sản phẩm</label>
-                    <<input type="file" name="ILink" multiple required>
+                    <<input asp-for="ILink" class="form-control" type="file" required>
                     <span asp-validation-for="ILink" class="text-danger"></span>
                 </div> 
 
