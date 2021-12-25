@@ -1,5 +1,7 @@
 ﻿using IS220M11.Data;
 using IS220M11.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,6 +9,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace IS220M11.Controllers
 {
@@ -17,7 +20,36 @@ namespace IS220M11.Controllers
         {
             _context = context;
         }
-
+        [Authorize(Roles = "Admin")]
+        public IActionResult AdminIndex()
+        {
+            return View();
+        }
+        [Authorize(Roles = "User")]
+        public IActionResult UserIndex()
+        {
+            var query = from post in _context.posts
+                        join pic in _context.pictures on post.PostID equals pic.IPostID
+                        where pic.IOrder == 1
+                        select new
+                        {
+                            postid = post.PostID,
+                            price = post.PPrice,
+                            tit = post.PTitle,
+                            tnpic = pic.ILink
+                        };
+            /*Get username session*/
+            ViewData["username"] = HttpContext.Session.GetString("username");
+            List<object> a = query.ToList<object>();
+            return View(a);
+        }
+        /*public string GetUsnSession(HttpContext context)
+        {
+            // Lấy ISession
+            var session = context.Session;
+            string key_access = "usn";
+            return session.GetString(key_access);
+        }*/
         public IActionResult Index()
         {
             var query = from post in _context.posts
@@ -44,5 +76,6 @@ namespace IS220M11.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }

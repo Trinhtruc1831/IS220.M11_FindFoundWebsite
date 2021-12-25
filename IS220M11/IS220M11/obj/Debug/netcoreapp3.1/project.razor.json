@@ -14402,6 +14402,11 @@
   "RootNamespace": "IS220M11",
   "Documents": [
     {
+      "FilePath": "d:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\Views\\picture\\AddImage.cshtml",
+      "TargetPath": "Views\\picture\\AddImage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -14432,18 +14437,38 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\Views\\account\\Login.cshtml",
+      "TargetPath": "Views\\account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\Views\\Home\\UserIndex.cshtml",
+      "TargetPath": "Views\\Home\\UserIndex.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\Views\\Shared\\_LayoutAdmin.cshtml",
+      "TargetPath": "Views\\Shared\\_LayoutAdmin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\Views\\Shared\\_LayoutUser.cshtml",
+      "TargetPath": "Views\\Shared\\_LayoutUser.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FilePath": "d:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FilePath": "d:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\Views\\post\\Post.cshtml",
+      "TargetPath": "Views\\post\\Post.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14454,6 +14479,11 @@
     {
       "FilePath": "d:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\Views\\Shared\\_LoginPartial.cshtml",
       "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\Views\\Home\\AdminIndex.cshtml",
+      "TargetPath": "Views\\Home\\AdminIndex.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -20,6 +20,7 @@ namespace IS220M11.Models
 		public int PPrice { get; set; }
 		public int Heart { get; set; }
 		public int PStatus { get; set; }
+		public string PDesc {get; set;}
 		public DateTime PDate { get; set; }
 		public ICollection<pictureModel> pictures { get; set; }
 	}

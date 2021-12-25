@@ -1,0 +1,119 @@
+@model IS220M11.Models.pictureModel
+@{
+    ViewData["Title"] = "AddImage";
+}
+@* <section class="page-section py-5" style="margin-top: rem;">
+    
+        <div class="x_title" style="margin-left: 7%;">
+            <h2 style="color: black;">Thêm hình ảnh sản phẩm </h2>
+            
+            <div class="clearfix"></div>
+        </div>
+            
+        <div class="col-md-6">
+            <br />
+            <form asp-action="AddImage">
+                
+                <div class="form-group">
+                    <label asp-for="ILink" class="control-label" style="color: black;">Hình ảnh sản phẩm</label>
+                    <input asp-for="ILink" class="form-control" type="file"  required>
+                    <span asp-validation-for="ILink" class="text-danger"></span>
+                </div> 
+                
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit" href="@Url.Action("AddImage", "picture")">Thêm</button>
+                    <button class="btn btn-primary" type="submit" >Kết thúc</button>
+                    <a asp-action="Index" class="btn btn-success" href="@Url.Action("Post", "post")">Danh sách sản phẩm</a>
+                </div>
+                
+            </form>
+        </div>
+    
+</section> *@
+
+@{var usn = @ViewData["username"];}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>FindnFound</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/public/assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Core theme CSS (includes Bootstrap)--> 
+    <link rel="stylesheet" href="~/public/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/public/css/flickity.css" media="screen">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.7/js/min/perfect-scrollbar.jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+</head>
+<body style=" background: url('/public/assets/img/test.png') no-repeat center center fixed; background-size: cover">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="~/public/assets/img/pagetop.png" alt="logo" title="Logo"></a>
+            <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("UserIndex", "Home")" id="userInput">@usn</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about" id="about">About</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("Create", "post")" id="userInput">Post</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("Logout", "account")">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+        
+    </div>
+    <section class="page-section py-5" style="margin-top: 5rem;">
+    <div class="x_panel" style="margin-left: 30%;">
+        <div class="x_title" style="margin-left: 7%;">
+            <h2>Thêm hình ảnh sản phẩm </h2>
+            
+            <div class="clearfix"></div>
+        </div>
+            
+        <div class="x_content">
+            <br />
+            <form  data-parsley-validate class="form-horizontal form-label-left" method="POST" action="AddImage"  enctype="multipart/form-data">
+                
+                <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Hình ảnh sản phẩm </label>
+                    <div class="col-md-6 col-sm-6 ">
+                        <input type="file"  required="required" class="form-control" name="ILink">
+                    </div>
+                </div>
+                                
+                <div class="item form-group" style="margin-left: 30px;">
+                    <div >
+                        <button class="btn btn-primary" type="submit">Thêm</button>
+                        <button class="btn btn-primary" type="reset">Reset</button>
+                        <a class="btn btn-success" href="@Url.Action("Post", "post")">Danh sách sản phẩm</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+</body>

@@ -27,7 +27,7 @@ using IS220M11.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"eac11b1d2c5dd5500858d551681d72b937c3e4b0", @"/Views/post/Delete.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d3cc93fea50f2c373e998cabbc73428e83c956c1", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cb5b49cc0dbf9bed1e2b06c4b6ed57335b89823f", @"/Views/_ViewImports.cshtml")]
     public class Views_post_Delete : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IS220M11.Models.picpostModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("type", "hidden", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

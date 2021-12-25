@@ -27,7 +27,7 @@ using IS220M11.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a74f8d66c475c86025687763b0eb64684a416d84", @"/Views/post/Detail.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d3cc93fea50f2c373e998cabbc73428e83c956c1", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cb5b49cc0dbf9bed1e2b06c4b6ed57335b89823f", @"/Views/_ViewImports.cshtml")]
     public class Views_post_Detail : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IS220M11.Models.picpostModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("mb-4"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

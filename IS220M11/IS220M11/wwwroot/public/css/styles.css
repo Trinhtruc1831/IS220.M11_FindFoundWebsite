@@ -10304,7 +10304,7 @@ h3 {
   }
 }
 .masthead {
-  padding-top: calc(1rem + 74px);
+  /*padding-top: calc(1rem + 74px);*/
   padding-bottom: 1rem;
 }
 .masthead .masthead-heading {
@@ -10320,7 +10320,7 @@ h3 {
 
 @media (min-width: 992px) {
   .masthead {
-    padding-top: calc(1.5rem + 104px);
+    padding-top: calc(1.5rem + 80px);
     padding-bottom: 0.3rem;
   }
   .masthead .masthead-heading {
