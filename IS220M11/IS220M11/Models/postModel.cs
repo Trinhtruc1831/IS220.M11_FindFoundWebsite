@@ -15,10 +15,12 @@ namespace IS220M11.Models
 		public int PUserID { get; set; }
 		[ForeignKey("PUserID")]
 		public accountModel account { get; set; }
+		[Required(ErrorMessage = "Vui lòng nhập tên sản phẩm")]
 		public string PTitle { get; set; }
 		public int PPrice { get; set; }
 		public int Heart { get; set; }
 		public int PStatus { get; set; }
+		public string PDesc {get; set;}
 		public DateTime PDate { get; set; }
 		public ICollection<pictureModel> pictures { get; set; }
 	}

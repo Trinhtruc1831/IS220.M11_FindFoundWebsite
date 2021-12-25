@@ -33,6 +33,7 @@ namespace IS220M11.Data
             modelBuilder.Entity<pictureModel>().ToTable("picture");
             modelBuilder.Entity<postModel>().ToTable("post");
             modelBuilder.Entity<reportModel>().ToTable("report");
+            modelBuilder.Entity<picpostModel>().ToTable("picpost");
         }
 
         private void HasKey(Func<object, object> p)

@@ -23,7 +23,7 @@ namespace IS220M11.Controllers
         }
         public IActionResult Login()
         {
-            /*HttpContext.Session.Clear();*/
+            
             foreach (var cookie in Request.Cookies.Keys)
             {
                 Response.Cookies.Delete(cookie);

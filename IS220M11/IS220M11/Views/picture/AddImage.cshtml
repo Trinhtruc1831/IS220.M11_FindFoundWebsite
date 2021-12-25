@@ -1,46 +1,34 @@
-@model IS220M11.Models.postModel
+@model IS220M11.Models.pictureModel
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "AddImage";
 }
 @* <section class="page-section py-5" style="margin-top: rem;">
-
-    <div class="x_title" style="margin-left: 7%;">
-        <h2 style="color: black;">Thêm sản phẩm mới </h2>
-
-        <div class="clearfix"></div>
-    </div>
-
-    <div class="col-md-6">
-        <br />
-        <form asp-action="Create">
+    
+        <div class="x_title" style="margin-left: 7%;">
+            <h2 style="color: black;">Thêm hình ảnh sản phẩm </h2>
             
-            <div class="form-group">
-                <label asp-for="PTitle" class="control-label" style="color: black;">Tên sản phẩm</label>
-                <input asp-for="PTitle" class="form-control" required />
-                <span asp-validation-for="PTitle" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="PDesc" class="control-label" style="color: black;">Mô tả sản phẩm</label>
-                <input asp-for="PDesc" class="form-control" required>
-                <span asp-validation-for="PDesc" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="PPrice" class="control-label" style="color: black;">Giá sản phẩm</label>
-                <input asp-for="PPrice" class="form-control" />
-                <span asp-validation-for="PPrice" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit" >Thêm</button>
-                <button class="btn btn-primary" type="reset">Reset</button>
-                <a asp-action="Index" class="btn btn-success" href="@Url.Action("Post", "post")">Danh sách sản phẩm</a>
-            </div>
-
-        </form>
-    </div>
-
+            <div class="clearfix"></div>
+        </div>
+            
+        <div class="col-md-6">
+            <br />
+            <form asp-action="AddImage">
+                
+                <div class="form-group">
+                    <label asp-for="ILink" class="control-label" style="color: black;">Hình ảnh sản phẩm</label>
+                    <input asp-for="ILink" class="form-control" type="file"  required>
+                    <span asp-validation-for="ILink" class="text-danger"></span>
+                </div> 
+                
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit" href="@Url.Action("AddImage", "picture")">Thêm</button>
+                    <button class="btn btn-primary" type="submit" >Kết thúc</button>
+                    <a asp-action="Index" class="btn btn-success" href="@Url.Action("Post", "post")">Danh sách sản phẩm</a>
+                </div>
+                
+            </form>
+        </div>
+    
 </section> *@
 
 @{var usn = @ViewData["username"];}
@@ -99,46 +87,25 @@
     <section class="page-section py-5" style="margin-top: 5rem;">
     <div class="x_panel" style="margin-left: 30%;">
         <div class="x_title" style="margin-left: 7%;">
-            <h2>Thêm sản phẩm mới </h2>
+            <h2>Thêm hình ảnh sản phẩm </h2>
             
             <div class="clearfix"></div>
         </div>
             
         <div class="x_content">
             <br />
-            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="POST" asp-action="Create"  enctype="multipart/form-data">
+            <form  data-parsley-validate class="form-horizontal form-label-left" method="POST" action="AddImage"  enctype="multipart/form-data">
                 
                 <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Tên sản phẩm <span class="required">*</span>
-                    </label>
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Hình ảnh sản phẩm </label>
                     <div class="col-md-6 col-sm-6 ">
-                        <input type="text" id="PTitle" required="required" class="form-control" name ="PTitle">
+                        <input type="file"  required="required" class="form-control" name="ILink">
                     </div>
                 </div>
-                <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Mô tả sản phẩm <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 ">
-                        <input type="text"  required="required" class="form-control" name="PDesc">
-                    </div>
-                </div>
-                <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Giá sản phẩm <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 ">
-                        <input type="text" required="required" class="form-control" name="PPrice">
-                    </div>
-                </div>
-                
-                <!-- <div class=" item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3  label-align">Mô tả sản phẩm<span class="required">*</span></label>
-                    <div class="col-md-9 col-sm-9">
-                        <textarea  required="required" name='product_desc' cols="30" rows="5"></textarea></div>
-                </div> -->
-                
+                                
                 <div class="item form-group" style="margin-left: 30px;">
                     <div >
-                        <button class="btn btn-primary" type="submit" >Thêm</button>
+                        <button class="btn btn-primary" type="submit">Thêm</button>
                         <button class="btn btn-primary" type="reset">Reset</button>
                         <a class="btn btn-success" href="@Url.Action("Post", "post")">Danh sách sản phẩm</a>
                     </div>
