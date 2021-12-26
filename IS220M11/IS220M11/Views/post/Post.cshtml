@@ -9,15 +9,17 @@
     var tit = "";
     var price = "";
     var tnpic = "";
+    var tdesc = "";
     var postid = TempData["postId"];
     @foreach (var item in Model)
     {
-        
+
         if (item.GetType().GetProperty("postid").GetValue(item, null).ToString().Equals(postid.ToString()))
         {
             tit = item.GetType().GetProperty("tit").GetValue(item, null).ToString();
-            price = item.GetType().GetProperty("price").GetValue(item, null).ToString()+"vnđ";
+            price = item.GetType().GetProperty("price").GetValue(item, null).ToString() + "vnđ";
             tnpic = item.GetType().GetProperty("tnpic").GetValue(item, null).ToString();
+            tdesc = item.GetType().GetProperty("tdesc").GetValue(item, null).ToString();
         }
     }
 
@@ -89,7 +91,7 @@
                     <div class="fs-5 mb-5">
                         <span class="text-decoration-line-through">@price</span>
                     </div>
-                    @*<p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>*@
+                    <p class="lead">@tdesc</p>
                     <div class="d-flex">
                         <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
                         <button class="btn btn-outline-dark flex-shrink-0" type="button">
@@ -112,39 +114,39 @@
             {
                 if (!(item.GetType().GetProperty("postid").GetValue(item, null).ToString().Equals(postid.ToString())))
                 {
-                <div class="gallery-cell" style="margin-left: 20px;margin-right: 10px">
-                    <div class="card h-460px" style="width: 200px;height: 300px; right: 230% !important;">
-                        <!-- Product image-->
-                        @{
-                            var utf8 = System.Text.Encoding.UTF8;
-                            string title = @item.GetType().GetProperty("tit").GetValue(item, null).ToString();
-                            int lentit = title.Length; ;
-                            if (lentit > 30)
-                            {
-                                title = title.Substring(0, 27) + " ....";
-                                byte[] utfBytes = utf8.GetBytes(title);
-                                title = utf8.GetString(utfBytes);
+                    <div class="gallery-cell" style="margin-left: 20px;margin-right: 10px">
+                        <div class="card h-460px" style="width: 200px;height: 300px; right: 230% !important;">
+                            <!-- Product image-->
+                            @{
+                                var utf8 = System.Text.Encoding.UTF8;
+                                string title = @item.GetType().GetProperty("tit").GetValue(item, null).ToString();
+                                int lentit = title.Length; ;
+                                if (lentit > 30)
+                                {
+                                    title = title.Substring(0, 27) + " ....";
+                                    byte[] utfBytes = utf8.GetBytes(title);
+                                    title = utf8.GetString(utfBytes);
+                                }
                             }
-                        }
-                        <img class="card-img-top" src="@item.GetType().GetProperty("tnpic").GetValue(item, null)" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4" style="height:300px">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h1>@title</h1>
+                            <img class="card-img-top" src="@item.GetType().GetProperty("tnpic").GetValue(item, null)" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4" style="height:300px">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h1>@title</h1>
+                                </div>
+                                <div class="text-center">
+                                    <!-- Product price-->
+                                    <p>GKĐ: @item.GetType().GetProperty("price").GetValue(item, null) vnđ</p>
+                                </div>
                             </div>
-                            <div class="text-center">
-                                <!-- Product price-->
-                                <p>GKĐ: @item.GetType().GetProperty("price").GetValue(item, null) vnđ</p>
-                            </div>
+                            <!-- Product actions-->
+                            <form action="@Url.Action("Post", "post")">
+                                <input type="hidden" id="postId" name="postId" value="@item.GetType().GetProperty("postid").GetValue(item, null)">
+                                <div class="text-center"><input type="submit" value="Details"></div>
+                            </form>
                         </div>
-                        <!-- Product actions-->
-                        <form action="@Url.Action("Post", "post")">
-                            <input type="hidden" id="postId" name="postId" value="@item.GetType().GetProperty("postid").GetValue(item, null)">
-                            <div class="text-center"><input type="submit" value="Details"></div>
-                        </form>
                     </div>
-                </div>
                 }
             }
         </div>

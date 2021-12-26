@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\IS220M11.csproj": {}
+    "C:\\Users\\19521\\source\\repos\\framework_IS220.M11_3\\IS220M11\\IS220M11\\IS220M11.csproj": {}
   },
   "projects": {
-    "D:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\IS220M11.csproj": {
+    "C:\\Users\\19521\\source\\repos\\framework_IS220.M11_3\\IS220M11\\IS220M11\\IS220M11.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\IS220M11.csproj",
+        "projectUniqueName": "C:\\Users\\19521\\source\\repos\\framework_IS220.M11_3\\IS220M11\\IS220M11\\IS220M11.csproj",
         "projectName": "IS220M11",
-        "projectPath": "D:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\IS220M11.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Hữu Thắng\\FRAMEWORK\\framework_IS220.M11_3\\IS220M11\\IS220M11\\obj\\",
+        "projectPath": "C:\\Users\\19521\\source\\repos\\framework_IS220.M11_3\\IS220M11\\IS220M11\\IS220M11.csproj",
+        "packagesPath": "C:\\Users\\19521\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\19521\\source\\repos\\framework_IS220.M11_3\\IS220M11\\IS220M11\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\19521\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -77,12 +79,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.19, 3.1.19]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -91,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

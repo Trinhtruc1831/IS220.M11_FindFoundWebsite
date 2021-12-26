@@ -44,7 +44,8 @@ namespace IS220M11.Controllers
                             postid = post.PostID,
                             price = post.PPrice,
                             tit = post.PTitle,
-                            tnpic = pic.ILink
+                            tnpic = pic.ILink,
+                            tdesc = post.PDesc
                         };
             return query;
         }

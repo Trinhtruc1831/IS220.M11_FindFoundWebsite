@@ -301,3 +301,13 @@ D:\Hữu Thắng\FRAMEWORK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\net
 D:\Hữu Thắng\FRAMEWORK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutAdmin.cshtml.g.cs
 D:\Hữu Thắng\FRAMEWORK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutUser.cshtml.g.cs
 D:\Hữu Thắng\FRAMEWORK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\picture\AddImage.cshtml.g.cs
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\account\Login.cshtml.g.cs
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\Home\AdminIndex.cshtml.g.cs
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\Home\UserIndex.cshtml.g.cs
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\picture\AddImage.cshtml.g.cs
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\post\Create.cshtml.g.cs
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\post\Delete.cshtml.g.cs
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\post\Detail.cshtml.g.cs
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\post\Post.cshtml.g.cs
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutAdmin.cshtml.g.cs
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutUser.cshtml.g.cs
