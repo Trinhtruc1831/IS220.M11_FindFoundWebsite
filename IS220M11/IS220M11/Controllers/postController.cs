@@ -44,8 +44,7 @@ namespace IS220M11.Controllers
                             postid = post.PostID,
                             price = post.PPrice,
                             tit = post.PTitle,
-                            tnpic = pic.ILink,
-                            tdesc = post.PDesc
+                            tnpic = pic.ILink
                         };
             return query;
         }
@@ -93,7 +92,9 @@ namespace IS220M11.Controllers
                             postid = post.PostID,
                             price = post.PPrice,
                             tit = post.PTitle,
-                            tnpic = pic.ILink
+                            tnpic = pic.ILink,
+                            tdesc = post.PDesc
+
                         };
             TempData["postId"] = postId;
             List<object> a = query.ToList<object>();
@@ -101,7 +102,7 @@ namespace IS220M11.Controllers
 
 
         }
-        public IActionResult UserIndex()
+        /*public IActionResult UserIndex()
         {
             var query = from post in _context.posts
                         join pic in _context.pictures on post.PostID equals pic.IPostID
@@ -113,11 +114,11 @@ namespace IS220M11.Controllers
                             tit = post.PTitle,
                             tnpic = pic.ILink
                         };
-            /*Get username session*/
+            *//*Get username session*//*
             ViewData["username"] = HttpContext.Session.GetString("username");
             List<object> a = query.ToList<object>();
             return View(a);
-        }
+        }*/
 
     }
 

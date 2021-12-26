@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,13 +21,18 @@ namespace IS220M11.Controllers
         {
             _context = context;
         }
-        [Authorize(Roles = "Admin")]
-        public IActionResult AdminIndex()
+        //Get model
+        public int getIDfUser(string user)
         {
-            return View();
+            var query = from account in _context.accounts
+                        where account.UName == user
+                        select new
+                        {
+                            id = account.UserID
+                        };
+            return query.First().id;
         }
-        [Authorize(Roles = "User")]
-        public IActionResult UserIndex()
+        private List<Object> GetPostPic()
         {
             var query = from post in _context.posts
                         join pic in _context.pictures on post.PostID equals pic.IPostID
@@ -38,20 +44,41 @@ namespace IS220M11.Controllers
                             tit = post.PTitle,
                             tnpic = pic.ILink
                         };
+            List<object> a = query.ToList<object>();
+            return a;
+        }
+        private List<object> GetChatHis()
+        {
+            var query = from chat in _context.chats
+                        join account in _context.accounts on chat.ChUserID equals account.UserID
+                        orderby chat.ChatID descending
+                        select new
+                        {
+                            user = account.UName,
+                            mess = chat.ChContent,
+                            date = chat.ChDate
+                        };
+            List<object> a = query.ToList<object>();
+            return a;
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult AdminIndex()
+        {
+            return View();
+        }
+        [Authorize(Roles = "User")]
+        public IActionResult UserIndex()
+        {
+            dynamic indexModel = new ExpandoObject();
+            indexModel.Posts = GetPostPic();
+            indexModel.Chats = GetChatHis();
             /*Get username session*/
             ViewData["username"] = HttpContext.Session.GetString("username");
-            List<object> a = query.ToList<object>();
-            return View(a);
+            return View(indexModel);
         }
-        /*public string GetUsnSession(HttpContext context)
-        {
-            // Lấy ISession
-            var session = context.Session;
-            string key_access = "usn";
-            return session.GetString(key_access);
-        }*/
         public IActionResult Index()
-        {
+        {   
+
             var query = from post in _context.posts
                         join pic in _context.pictures on post.PostID equals pic.IPostID
                         where pic.IOrder == 1
@@ -64,18 +91,18 @@ namespace IS220M11.Controllers
             List<object> a = query.ToList<object>();
             return View(a);
         }
-        public int getIDfUser(string user)
-        {
-            var query = from account in _context.accounts
-                        where account.UName == user
-                        select new
-                        {
-                            id = account.UserID
-                        };
-            return query.First().id;
-        }
         public async Task<IActionResult> CreateMess(string mess, string user, string day)
         {
+            var query = from row in _context.chats
+                        select row;
+            var count = query.Count();
+            if (count >= 10)
+            {
+                int id = query.FirstOrDefault().ChatID;
+                var chatModel = await _context.chats.FindAsync(id);
+                _context.chats.Remove(chatModel);
+                await _context.SaveChangesAsync();
+            }
             int iduser = getIDfUser(user);
             chatModel chat = new chatModel();
             if (ModelState.IsValid)
