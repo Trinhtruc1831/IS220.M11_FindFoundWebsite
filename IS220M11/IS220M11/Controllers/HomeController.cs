@@ -64,8 +64,31 @@ namespace IS220M11.Controllers
             List<object> a = query.ToList<object>();
             return View(a);
         }
-
-        
+        public int getIDfUser(string user)
+        {
+            var query = from account in _context.accounts
+                        where account.UName == user
+                        select new
+                        {
+                            id = account.UserID
+                        };
+            return query.First().id;
+        }
+        public async Task<IActionResult> CreateMess(string mess, string user, string day)
+        {
+            int iduser = getIDfUser(user);
+            chatModel chat = new chatModel();
+            if (ModelState.IsValid)
+            {
+                chat.ChContent = mess;
+                chat.ChUserID = iduser;
+                chat.ChDate = day;
+                await _context.chats.AddAsync(chat);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            return Error();
+        }
         public IActionResult Privacy()
         {
             return View();
