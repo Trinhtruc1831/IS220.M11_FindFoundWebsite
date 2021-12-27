@@ -1,0 +1,138 @@
+﻿@using System;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using static System.Console;
+@model dynamic
+@{
+    ViewData["Title"] = "Welcome to FnF!";
+    Layout = "_LayoutUser";
+}
+@{var usn = @ViewData["username"];}
+
+<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="~/public/assets/img/pagetop.png" alt="logo" title="Logo"></a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("UserIndex", "Home")" id="userInput">@usn</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about" id="about">About</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("Create", "post")">Post</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("Logout", "account")">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <header class="text-white text-center">
+        <div class="container d-flex align-items-center flex-column ">
+            <!-- Masthead Avatar Image-->
+            <img id=logo class="masthead-avatar mb-5" src="~/public/assets/img/logo.png" alt="..." width="100" />
+
+        </div>
+    </header>
+</div>
+<!-- Recommeded Section-->
+<section class="page-section py-5">
+    <!-- Flickity HTML init -->
+    
+    <div class="gallery js-flickity" style="margin-left: 10%;margin-right: 10%">
+        @foreach (object item in Model.Posts)
+        {
+            <div class="gallery-cell" style="margin-left: 20px;margin-right: 10px">
+                <div class="card h-460px" style="width: 200px;height: 300px; right: 230% !important;">
+                    <!-- Product image-->
+                    @{
+                        var utf8 = System.Text.Encoding.UTF8;
+                        string title = @item.GetType().GetProperty("tit").GetValue(item, null).ToString();
+                        int lentit = title.Length; ;
+                        if (lentit > 30)
+                        {
+                            title = title.Substring(0, 27) + " ....";
+                            byte[] utfBytes = utf8.GetBytes(title);
+                            title = utf8.GetString(utfBytes);
+                        }
+                    }
+                    <img class="card-img-top" src="@item.GetType().GetProperty("tnpic").GetValue(item, null)" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4" style="height:300px">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h1>@title</h1>
+                        </div>
+                        <div class="text-center">
+                            <!-- Product price-->
+                            <p>GKĐ: @item.GetType().GetProperty("price").GetValue(item, null) vnđ</p>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <form action="@Url.Action("Post", "post")">
+                        <input type="hidden" id="postId" name="postId" value="@item.GetType().GetProperty("postid").GetValue(item, null)">
+                        <div class="text-center"><input type="submit" value="Details"></div>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+<!-- Chatbox Section-->
+
+
+<section class="page-section text-white mb-0" id="chatbox">
+    <div class="containerchat" style="background-size: 100% 100%; background-image: url('/public/assets/img/chatbox.png')">
+        <form id="chatForm" asp-controller="Home" asp-action="CreateMess" data-ajax="true" data-ajax-method="POST">
+            <ul class="ul-chat" id="messagesList" style="text-align:left !important">
+                @foreach (object item in Model.Chats)
+                {
+                    var user = @item.GetType().GetProperty("user").GetValue(item, null).ToString();
+                    var mess = @item.GetType().GetProperty("mess").GetValue(item, null).ToString();
+                    var date = @item.GetType().GetProperty("date").GetValue(item, null).ToString();
+                    <li class="li-chat">@date<a href="javascript:void(0)">@user:</a> @mess</li>
+                }
+            </ul>
+            <p style="margin-left: 3.1%">
+                <input type="hidden" id="mess" name="mess">
+                <input type="hidden" id="user" name="user">
+                <input type="hidden" id="day" name="day">
+                <input class="textbox" type="text" id="messageInput" />
+                <input type="submit" id="sendButton" value="Send" style="width:9%;background-color: #a88a64; border-width: 2px; color: #f5f3f3ef;border-radius: 8px;margin-bottom: 15px;padding-bottom: 0.6%;padding-left: 0.9%;padding-top: 0.5%;" />
+            </p>
+        </form>
+
+    </div>
+</section>
+
+<!-- Blank -->
+<section class="page-section text-white mb-0" style="background-size: 100% 100%; background-image: url('/public/assets/img/plank.png');  " id="chatbox"></section>
+<!-- About Section-->
+<section class="page-section text-white mb-0" style="background-size: 100% 100%; background-image: url('/public/assets/img/about.png');  " id="about">
+    <div class="container">
+        <!-- About Section Heading-->
+        <h5 class="page-section-heading text-center text-light text-uppercase " style="font-family: 'Caveat', cursive; font-size: 3.5rem;margin-top: 150px">About us</h5>
+
+        <!-- About Section Content-->
+        <div class="row">
+            <div class="col-12">
+                <p class="lead text-light" style="text-align: center; font-family: 'Caveat', cursive; font-size: 3rem;  ">We are relaxing, not doing anything special, yet content with ourselves.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- Donate Section-->
+<section class="page-section" id="donate">
+    <div class="container">
+        <!-- Donate Section Heading-->
+        <h2 class=" text-center text-secondary mb-0" style="font-size: 1.5rem;">Buy us a coffee ☕</h2>
+        <!-- Icon Divider-->
+        <br>
+        <br>
+        <img src="/public/assets/img/donate.png" alt="Girl in a jacket" style="width:100px;" class="center">
+    </div>
+</section>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
+<script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
