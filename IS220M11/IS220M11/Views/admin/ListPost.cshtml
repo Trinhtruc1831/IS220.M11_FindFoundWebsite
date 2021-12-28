@@ -1,0 +1,92 @@
+﻿@model IEnumerable<IS220M11.Models.postModel>
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "_LayoutAdmin";
+}
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+
+        #customers tr:nth-child(even) {
+            background-color: #e7e3d4;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #A88A64;
+            color: white;
+        }
+
+        #customers td {
+            color: #49371f;
+        }
+</style>
+<div class="container-fluid px-4">
+    <h1 class="mt-4" style="color: #49371f">Post management</h1>
+    <table class="table" id="customers">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.account)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Heart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PDate)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.account.UserID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Heart)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PostID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PostID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PostID">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

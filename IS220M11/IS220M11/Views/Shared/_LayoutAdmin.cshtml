@@ -44,24 +44,24 @@
         </form>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" style="color:#faf5f0;font-weight: bold;" href="login.html"> <i class="fas fa-sign-out-alt"></i></a></li>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" style="color:#faf5f0;font-weight: bold" href="@Url.Action("Logout", "account")"> <i class="fas fa-sign-out-alt"></i></a></li>
         </ul>
     </nav>
 
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu ">
+                <div class="sb-sidenav-menu " style="background-color: #f5f1e3 !important">
                     <div class="nav">
-                        <a class="nav-link" href="javascript:void(0)" style="color:#49371f;font-weight: 650" title="Member management">
+                        <a class="nav-link" href="@Url.Action("ListMember", "admin")" style="color: #49371f; font-weight: 650; background-color: #A88A64 !important; border-radius: 8px !important; margin-top: 6% !important; margin-right: 6% !important " title="Member management">
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                             Member
                         </a>
-                        <a class="nav-link " href="javascript:void(0)" style="color:#49371f;font-weight: 650" title="Post management">
-                            <div class="sb-nav-link-icon"><i class="fas fa-solid fa-clipboard-list"></i></i></div>
+                        <a class="nav-link " href="@Url.Action("ListPost", "admin")" style="color: #49371f; font-weight: 650; background-color: #A88A64 !important; border-radius: 8px !important; margin-top: 6% !important; margin-right: 6% !important " title="Post management">
+                            <div class="sb-nav-link-icon"><i class="fas fa-solid fa-clipboard-list"></i></div>
                             Post
                         </a>
-                        <a class="nav-link " href="javascript:void(0)" style="color:#49371f;font-weight: 650" title="Statistics of website">
+                        <a class="nav-link " href="javascript:void(0)" style="color: #49371f; font-weight: 650; background-color: #A88A64 !important; border-radius: 8px !important; margin-top: 6% !important; margin-right: 6% !important " title="Statistics of website">
                             <div class="sb-nav-link-icon"><i class=" fas fa-chart-line"></i></div>
                             Statistics
                         </a>

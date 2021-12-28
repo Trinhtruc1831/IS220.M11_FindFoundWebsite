@@ -1,0 +1,86 @@
+﻿@model IEnumerable<IS220M11.Models.accountModel>
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "_LayoutAdmin";
+}
+
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+
+    #customers tr:nth-child(even) {
+        background-color: #e7e3d4;
+    }
+
+    #customers tr:hover {
+        background-color: #ddd;
+    }
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #A88A64;
+        color: white;
+    }
+    #customers td {
+        color: #49371f;
+    }
+</style>
+<div class="container-fluid px-4">
+    <h1 class="mt-4" style="color: #49371f">Member management</h1>
+    <table class="table" id="customers">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UPhone)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UPhone)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.UserID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.UserID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.UserID">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

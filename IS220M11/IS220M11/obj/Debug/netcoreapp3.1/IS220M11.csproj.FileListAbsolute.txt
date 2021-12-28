@@ -615,3 +615,6 @@ C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\bin\Debug\ne
 C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\account\EditInfor.cshtml.g.cs
 C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\account\EditInfo.cshtml.g.cs
 C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\account\Info.cshtml.g.cs
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\admin\Index.cshtml.g.cs
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\admin\ListMember.cshtml.g.cs
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\admin\ListPost.cshtml.g.cs
