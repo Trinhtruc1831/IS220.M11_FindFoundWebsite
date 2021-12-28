@@ -1,0 +1,40 @@
+FINAL TASK
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+Trang home index:
+- Sửa cái style của list post
+- Detail chưa dân đc tới post 
+- Tin nhắn chưa load đc 
+Trang user index:
+- Bấm tên user chưa ra trang thông tin cá nhân
+- Sửa style của list post
+- Tin nhắn sửa màu chữ tin nhắn 
+- Sửa navigation bar post thành donate 
+- Lúc login: bỏ quên mật khẩu đi, chỉ làm sign up 
+
+Trang thông tin cá nhân:
+- Chưa dô đc trang userinfo
+- Sửa navigation bar bpr about donate thành post
+- Chưa có nút edit info
+- Mới có list bài post ra thui chứ chưa có bài đã thích, chia ra 2 tab đã post, đã thích -> đổi thành 2 tab như trên
+- Trong tab các bài post có thêm nút xóa sửa detail , đổi list post thành bảng scafford 
+
+Thêm hyperlink cho tên bài viết để bấm dô cái ra đc detail
+
+Trang post:
+- Hoàn thiện chức năng trang post
+
+Trang detail sản phẩm:
+- Sửa style 
+- Thêm cái pane để xem đc nhiều ảnh khác của sp
+- Thêm chức năng cho nút interest : bấm dô thì nó lưu dô mã user đó list interest post
+- Làm chức năng comment 
+
+
+Trang admin:
+- Trong user, khi bấm userinfo thì nó thêm search (nếu đc) 
+- List post: có chức năng delete, details
+- Member: có chức năng ban(status  = 0/1), detail,
+- Bỏ nút statistics
+
+- Lấy session user đầy đủ cho các trang 
