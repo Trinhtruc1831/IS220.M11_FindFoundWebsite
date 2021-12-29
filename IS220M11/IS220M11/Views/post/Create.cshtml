@@ -2,48 +2,11 @@
 @{
     ViewData["Title"] = "Create";
 }
-@* <section class="page-section py-5" style="margin-top: rem;">
 
-    <div class="x_title" style="margin-left: 7%;">
-        <h2 style="color: black;">Thêm sản phẩm mới </h2>
 
-        <div class="clearfix"></div>
-    </div>
-
-    <div class="col-md-6">
-        <br />
-        <form asp-action="Create">
-            
-            <div class="form-group">
-                <label asp-for="PTitle" class="control-label" style="color: black;">Tên sản phẩm</label>
-                <input asp-for="PTitle" class="form-control" required />
-                <span asp-validation-for="PTitle" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="PDesc" class="control-label" style="color: black;">Mô tả sản phẩm</label>
-                <input asp-for="PDesc" class="form-control" required>
-                <span asp-validation-for="PDesc" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="PPrice" class="control-label" style="color: black;">Giá sản phẩm</label>
-                <input asp-for="PPrice" class="form-control" />
-                <span asp-validation-for="PPrice" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit" >Thêm</button>
-                <button class="btn btn-primary" type="reset">Reset</button>
-                <a asp-action="Index" class="btn btn-success" href="@Url.Action("Post", "post")">Danh sách sản phẩm</a>
-            </div>
-
-        </form>
-    </div>
-
-</section> *@
-
-@{var usn = @ViewData["username"];}
+@{
+    var usn = @ViewData["username"];
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,90 +26,104 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Core theme CSS (includes Bootstrap)--> 
+    <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" href="~/public/css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/public/css/flickity.css" media="screen">
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.7/js/min/perfect-scrollbar.jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.7/js/min/perfect-scrollbar.jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
 
 </head>
+
 <body style=" background: url('/public/assets/img/test.png') no-repeat center center fixed; background-size: cover">
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="~/public/assets/img/pagetop.png" alt="logo" title="Logo"></a>
-            <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("UserIndex", "Home")" id="userInput">@usn</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about" id="about">About</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("Create", "post")" id="userInput">Post</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("Logout", "account")">Logout</a></li>
-                </ul>
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="~/public/assets/img/pagetop.png"
+                        alt="logo" title="Logo"></a>
+                <button
+                    class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
+                    type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a
+                                class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                                href="@Url.Action("UserIndex", "Home")" id="userInput">@usn</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a
+                                class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about"
+                                id="about">About</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a
+                                class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                                href="@Url.Action("Create", "post")" id="userInput">Post</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a
+                                class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                                href="@Url.Action("Logout", "account")">Logout</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-        
+        </nav>
+
     </div>
     <section class="page-section py-5" style="margin-top: 5rem;">
-    <div class="x_panel" style="margin-left: 30%;">
-        <div class="x_title" style="margin-left: 7%;">
-            <h2>Thêm sản phẩm mới </h2>
-            
-            <div class="clearfix"></div>
-        </div>
-            
-        <div class="x_content">
-            <br />
-            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="POST" asp-action="Create"  enctype="multipart/form-data">
-                
-                <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Tên sản phẩm <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 ">
-                        <input type="text" id="PTitle" required="required" class="form-control" name ="PTitle">
-                    </div>
-                </div>
-                <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Mô tả sản phẩm <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 ">
-                        <input type="text"  required="required" class="form-control" name="PDesc">
-                    </div>
-                </div>
-                <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Giá sản phẩm <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 ">
-                        <input type="text" required="required" class="form-control" name="PPrice">
-                    </div>
-                </div>
-                
-                <!-- <div class=" item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3  label-align">Mô tả sản phẩm<span class="required">*</span></label>
-                    <div class="col-md-9 col-sm-9">
-                        <textarea  required="required" name='product_desc' cols="30" rows="5"></textarea></div>
-                </div> -->
-                
-                <div class="item form-group" style="margin-left: 30px;">
-                    <div >
-                        <button class="btn btn-primary" type="submit" >Thêm</button>
-                        <button class="btn btn-primary" type="reset">Reset</button>
-                        <a class="btn btn-success" href="@Url.Action("Post", "post")">Danh sách sản phẩm</a>
-                    </div>
-                </div>
+        <div class="x_panel" style="margin-left: 30%;">
+            <div class="x_title" style="margin-left: 7%;">
+                <h2>Thêm sản phẩm mới </h2>
 
-            </form>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="x_content">
+                <br />
+                <form data-parsley-validate class="form-horizontal form-label-left" method="POST" asp-action="Create"
+                    enctype="multipart/form-data">
+                    <input type="hidden" value=@usn name="user">
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Tên sản phẩm <span
+                                class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" id="PTitle" required="required" class="form-control" name="PTitle">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Mô tả sản phẩm
+                            <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" required="required" class="form-control" name="PDesc">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Giá sản phẩm <span
+                                class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" required="required" class="form-control" name="PPrice">
+                        </div>
+                    </div>
+
+                    <div class="item form-group" style="margin-left: 30px;">
+                        <div>
+                            <button class="btn btn-primary" type="submit">Thêm</button>
+                            <button class="btn btn-primary" type="reset">Reset</button>
+                            <a class="btn btn-success" href="@Url.Action("Post", "post")">Danh sách sản phẩm</a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 </body>
