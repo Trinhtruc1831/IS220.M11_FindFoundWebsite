@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Text;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace IS220M11.Controllers
 {
@@ -34,6 +35,11 @@ namespace IS220M11.Controllers
             List<object> a = query.ToList<object>();
             return View(a);
         }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
         public IQueryable<object> GetPostTit()
         {
             var query = from post in _context.posts
@@ -48,7 +54,16 @@ namespace IS220M11.Controllers
                         };
             return query;
         }
-
+        public int GetUserID(string user)
+        {
+            var query = from account in _context.accounts
+                        where account.UName == user
+                        select new
+                        {
+                            UserID = account.UserID
+                        };
+            return query.FirstOrDefault().UserID;
+        }
         public IActionResult Create()
         {
             ViewData["username"] = HttpContext.Session.GetString("username");
@@ -56,32 +71,31 @@ namespace IS220M11.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PTitle, PDesc, PPrice")] postModel post)
+        public async Task<IActionResult> Create(string PTitle, string PDesc, int PPrice, string user)
         {
+            
+            int iduser = GetUserID(user);
+            postModel post = new postModel();
             if (ModelState.IsValid)
             {
-                post.PUserID = 5;
+                post.PTitle = PTitle;
+                post.PDesc = PDesc;
+                post.PPrice = PPrice;
+                post.PUserID = iduser;
                 post.PDate = DateTime.Now;
-                _context.Add(post);
+                await _context.posts.AddAsync(post);
                 await _context.SaveChangesAsync();
-                // picture.IPostID = post.PostID;
-                // _context.Add(picture);
-                // await _context.SaveChangesAsync();
+                
+                HttpContext.Session.SetString("postid", post.PostID.ToString());
+                HttpContext.Session.SetString("Iorder", "1");
+                return RedirectToAction("AddImage", "picture");
             }
+
             ViewData["username"] = HttpContext.Session.GetString("username");
-            return RedirectToAction("AddImage", "picture");
+            return Error();
         }
 
-        // public int UserID(string userID, string pass)
-        // {
-        //     var query = from st in _context.accounts
-        //                 where st.UName == username
-        //                 select new
-        //                 {
-        //                     r = st.UType
-        //                 };
-        //     return query.First().r;
-        // }
+        
         public IActionResult Post(int postId)
         {
             var query = from post in _context.posts
