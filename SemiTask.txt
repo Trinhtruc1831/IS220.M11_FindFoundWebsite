@@ -22,7 +22,7 @@ Trang thông tin cá nhân:
 Thêm hyperlink cho tên bài viết để bấm dô cái ra đc detail
 
 Trang post:
-- Hoàn thiện chức năng trang post
+- Hoàn thiện chức năng trang post - ĐÃ XONG 
 
 Trang detail sản phẩm:
 - Sửa style 
