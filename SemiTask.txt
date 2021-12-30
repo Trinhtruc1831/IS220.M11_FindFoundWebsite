@@ -31,7 +31,8 @@ Trang thông tin người khác:
 
 
 Trang post:
-- Hoàn thiện chức năng trang post - ĐÃ XONG (Thắng) 
+- Hoàn thiện chức năng trang post - ĐÃ XONG (Thắng)
+- Chưa có chức năng edit bài viết (tham khảo edit tài khoản (account/editinfor)) 
 
 Trang detail sản phẩm:
 - Sửa style 
