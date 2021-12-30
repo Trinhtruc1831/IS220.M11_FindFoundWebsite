@@ -10,16 +10,16 @@
 
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="~/public/assets/img/pagetop.png" alt="logo" title="Logo"></a>
+        <a class="navbar-brand js-scroll-trigger" href="@Url.Action("UserIndex", "Home")"><img src="~/public/assets/img/pagetop.png" alt="logo" title="Logo"></a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("UserIndex", "Home")" id="userInput">@usn</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about" id="about">About</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("Create", "post")">Post</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("Info", "account")" id="userInput">@usn</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#donate">Donate</a></li>
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("Logout", "account")">Logout</a></li>
             </ul>
         </div>
@@ -37,7 +37,7 @@
 <!-- Recommeded Section-->
 <section class="page-section py-5">
     <!-- Flickity HTML init -->
-    
+
     <div class="gallery js-flickity" style="margin-left: 10%;margin-right: 10%">
         @foreach (object item in Model.Posts)
         {
@@ -50,39 +50,48 @@
                         int lentit = title.Length; ;
                         if (lentit > 30)
                         {
-                            title = title.Substring(0, 27) + " ....";
+                            title = title.Substring(0, 27) + "....";
                             byte[] utfBytes = utf8.GetBytes(title);
                             title = utf8.GetString(utfBytes);
                         }
                     }
                     <img class="card-img-top" src="@item.GetType().GetProperty("tnpic").GetValue(item, null)" alt="..." />
                     <!-- Product details-->
-                    <div class="card-body p-4" style="height:300px">
-                        <div class="text-center">
+                    <div class="p-4">
+                        <div class="text-center" style="height:125px">
                             <!-- Product name-->
                             <a href="post.html" class="fw-bolder h-60px h5" style="color: #49371f;">@title</a>
                         </div>
                         <div class="text-center">
                             <!-- Product price-->
-                            <p>GKĐ: @item.GetType().GetProperty("price").GetValue(item, null) vnđ</p>
+                            <p style="color: #49371f;font-size:18px!important">~@String.Format("{0:n0}", @item.GetType().GetProperty("price").GetValue(item, null))vnđ</p>
                         </div>
                     </div>
                     <!-- Product actions-->
+                    
                     <form action="@Url.Action("Post", "post")">
                         <input type="hidden" id="postId" name="postId" value="@item.GetType().GetProperty("postid").GetValue(item, null)">
-                        <div class="text-center"><input type="submit" value="Details"></div>
+                        <div class="text-center" ><input class="btn btn-outline-dark mt-auto" type="submit" value="Details"></div>
                     </form>
+
                 </div>
             </div>
         }
-    </div>
+
 </section>
-<!-- Chatbox Section-->
+
 
 
 <section class="page-section text-white mb-0" id="chatbox">
     <div class="containerchat" style="background-size: 100% 100%; background-image: url('/public/assets/img/chatbox.png')">
         <form id="chatForm" asp-controller="Home" asp-action="CreateMess" data-ajax="true" data-ajax-method="POST">
+            <p style="margin-left: 3.1%">
+                <input type="hidden" id="mess" name="mess">
+                <input type="hidden" id="user" name="user">
+                <input type="hidden" id="day" name="day">
+                <input class="textbox" type="text" id="messageInput">
+                <input type="submit" id="sendButton" value="Send" style="width:9%;background-color: #a88a64; border-width: 2px; color: #f5f3f3ef;border-radius: 8px;margin-bottom: 15px;padding-bottom: 0.6%;padding-left: 0.9%;padding-top: 0.5%;" />
+            </p>
             <ul class="ul-chat" id="messagesList" style="text-align:left !important">
                 @foreach (object item in Model.Chats)
                 {
@@ -92,13 +101,6 @@
                     <li class="li-chat">@date<a href="javascript:void(0)">@user:</a> @mess</li>
                 }
             </ul>
-            <p style="margin-left: 3.1%">
-                <input type="hidden" id="mess" name="mess">
-                <input type="hidden" id="user" name="user">
-                <input type="hidden" id="day" name="day">
-                <input class="textbox" type="text" id="messageInput" />
-                <input type="submit" id="sendButton" value="Send" style="width:9%;background-color: #a88a64; border-width: 2px; color: #f5f3f3ef;border-radius: 8px;margin-bottom: 15px;padding-bottom: 0.6%;padding-left: 0.9%;padding-top: 0.5%;" />
-            </p>
         </form>
 
     </div>

@@ -111,28 +111,12 @@ namespace IS220M11.Controllers
 
                         };
             TempData["postId"] = postId;
+            ViewData["username"] = HttpContext.Session.GetString("username");
             List<object> a = query.ToList<object>();
             return View(a);
 
 
         }
-        /*public IActionResult UserIndex()
-        {
-            var query = from post in _context.posts
-                        join pic in _context.pictures on post.PostID equals pic.IPostID
-                        where pic.IOrder == 1
-                        select new
-                        {
-                            postid = post.PostID,
-                            price = post.PPrice,
-                            tit = post.PTitle,
-                            tnpic = pic.ILink
-                        };
-            *//*Get username session*//*
-            ViewData["username"] = HttpContext.Session.GetString("username");
-            List<object> a = query.ToList<object>();
-            return View(a);
-        }*/
 
     }
 

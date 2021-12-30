@@ -16,6 +16,7 @@
     </header>
 </div>
 <!-- Recommeded Section-->
+
 <section class="page-section py-5">
     <!-- Flickity HTML init -->
 
@@ -61,22 +62,22 @@
 <section class="page-section text-white mb-0" id="chatbox">
     <div class="containerchat" style="background-size: 100% 100%; background-image: url('/public/assets/img/chatbox.png')">
         <form id="chatForm" asp-controller="Home" asp-action="CreateMess" data-ajax="true" data-ajax-method="POST">
+            <p style="margin-left: 3.1%">
+                <input type="hidden" id="mess" name="mess">
+                <input type="hidden" id="user" name="user">
+                <input type="hidden" id="day" name="day">
+                <input class="textbox" type="text" id="messageInput">
+                <a href="@Url.Action("Login", "account")"><input style="width:9%;background-color: #a88a64; border-width: 2px; color: #f5f3f3ef;border-radius: 8px;margin-bottom: 15px;padding-bottom: 0.6%;padding-left: 0.9%;padding-top: 0.5%;" type="button" value="Send" /></a>
+            </p>
             <ul class="ul-chat" id="messagesList" style="text-align:left !important">
                 @foreach (object item in Model.Chats)
                 {
                     var user = @item.GetType().GetProperty("user").GetValue(item, null).ToString();
                     var mess = @item.GetType().GetProperty("mess").GetValue(item, null).ToString();
                     var date = @item.GetType().GetProperty("date").GetValue(item, null).ToString();
-                    <li class="li-chat">@date<a href="javascript:void(0)">@user:</a> @mess</li>
+                    <li class="li-chat">@date<a href="@Url.Action("Login", "account")">@user:</a> @mess</li>
                 }
-            </ul>
-            <p style="margin-left: 3.1%">
-                <input type="hidden" id="mess" name="mess">
-                <input type="hidden" id="user" name="user">
-                <input type="hidden" id="day" name="day">
-                <input class="textbox" type="text" id="messageInput" />
-                <a href="@Url.Action("Login", "account")"><input style="width:9%;background-color: #a88a64; border-width: 2px; color: #f5f3f3ef;border-radius: 8px;margin-bottom: 15px;padding-bottom: 0.6%;padding-left: 0.9%;padding-top: 0.5%;" type="button" value="Send" /></a>
-            </p>
+            </ul>            
         </form>
 
     </div>
