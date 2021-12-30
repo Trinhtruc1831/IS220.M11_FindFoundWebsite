@@ -19,12 +19,15 @@ Trang user index:
 
 
 Trang thông tin cá nhân:
-- Chưa dô đc trang userinfo
-- Sửa navigation bar bpr about donate thành post
-- Chưa có nút edit info
-- Mới có list bài post ra thui chứ chưa có bài đã thích, chia ra 2 tab đã post, đã thích -> đổi thành 2 tab như trên
-- Trong tab các bài post có thêm nút xóa sửa detail , đổi list post thành bảng scafford 
+- Sửa navigation bar bpr about donate thành post ĐÃ XONG (Trúc) 
+- Chưa có nút edit info ĐÃ XONG (Trúc)
+- Mới có list bài post ra thui chứ chưa có bài đã thích, chia ra 2 tab đã post, đã thích -> đổi thành 2 tab như trên  ĐÃ XONG (Trúc) 
+- Trong tab các bài post có thêm nút xóa sửa detail , đổi list post thành bảng scafford ĐÃ XONG (Trúc) 
+- Chưa có chức năng edit thông tin ĐÃ XONG (Trúc) 
 
+Trang thông tin người khác:
+- Chưa có
+- Chưa được link từ các nơi khác về
 
 
 Trang post:

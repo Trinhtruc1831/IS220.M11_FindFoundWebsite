@@ -58,7 +58,7 @@
     <section class="page-section py-5" style="margin-top: 5rem;">
         <div class="x_panel" style="margin-left: 30%;">
             <div class="x_title" style="margin-left: 7%;">
-                <h2>Chỉnh sửa thông tin cá nhân</h2>
+                <h2>Edit your information:</h2>
 
                 <div class="clearfix"></div>
             </div>
@@ -67,51 +67,35 @@
                 <form data-parsley-validate class="form-horizontal form-label-left" method="POST" asp-action="Edit" asp-controller="account" enctype="multipart/form-data">
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="UName">
-                            UName <span class="required">*</span>
+                            UName
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="text" required="required" class="form-control" asp-for="UName">
+                            <input type="text"  class="form-control" asp-for="UName">
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="UPass">
-                            UPass <span class="required">*</span>
+                            UPass
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="text" required="required" class="form-control" asp-for="UPass">
+                            <input type="password"  class="form-control" asp-for="UPass">
                         </div>
                     </div>
-                    <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="UType">
-                            UType <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 ">
-                            <input type="number" required="required" class="form-control" asp-for="UType">
-                        </div>
-                    </div>
-                    <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="UStatus">
-                            UStatus <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 ">
-                            <input type="number" required="required" class="form-control" asp-for="UStatus">
-                        </div>
-                    </div>
-                    @*hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii*@
+                    
                 <div class="item form-group">
                     <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="UEmail">
-                        Email adress <span class="required">*</span>
+                        Email adress
                     </label>
                     <div class="col-md-6 col-sm-6 ">
-                        <input type="text" required="required" class="form-control" asp-for="UEmail">
+                        <input type="text" class="form-control" asp-for="UEmail">
                     </div>
                 </div>
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="UPhone">
-                            Phone number <span class="required">*</span>
+                            Phone number 
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="text" required="required" class="form-control" asp-for="UPhone">
+                            <input type="text" class="form-control" asp-for="UPhone">
                         </div>
                     </div>
                     

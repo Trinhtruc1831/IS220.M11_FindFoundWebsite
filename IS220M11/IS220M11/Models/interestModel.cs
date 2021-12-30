@@ -21,6 +21,8 @@ namespace IS220M11.Models
         [ForeignKey("InUserID")]
         public accountModel account{ get; set; }
 
+        public DateTime InDate { get; set; }
+
     }
 }
 

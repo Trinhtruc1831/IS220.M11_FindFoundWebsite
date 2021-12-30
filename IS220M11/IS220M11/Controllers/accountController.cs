@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using System.Dynamic;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace IS220M11.Controllers
 {
@@ -105,7 +107,7 @@ namespace IS220M11.Controllers
             return RedirectToAction("Index","Home");
         }
         /***********************************************************/
-        public int getIDfUser(string user)
+        public int getIDUser(string user)
         {
             var query = from account in _context.accounts
                         where account.UName == user
@@ -115,7 +117,7 @@ namespace IS220M11.Controllers
                         };
             return query.First().id;
         }
-        public async Task<IActionResult> Edit(accountModel account)
+        /*public async Task<IActionResult> EditCreatenekkkk(accountModel account)
         {
             ViewData["username"] = HttpContext.Session.GetString("username");
             if (ModelState.IsValid)
@@ -127,7 +129,7 @@ namespace IS220M11.Controllers
                     folder = "public/assets/ava/";
                     folder += Guid.NewGuid().ToString() +"_"+  account.CoverPhoto.FileName;
                     string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
-                    /*account.UAva = await UploadImage(folder, bookModel.CoverPhoto);*/
+                    *//*account.UAva = await UploadImage(folder, bookModel.CoverPhoto);*//*
                     await account.CoverPhoto.CopyToAsync(new FileStream(serverFolder,FileMode.Create));
                 }
                 account.UAva = "/"+folder;
@@ -138,6 +140,70 @@ namespace IS220M11.Controllers
             }
 
             return Ok();
+        }*/
+        
+        public async Task<IActionResult> Edit(accountModel account)
+        {
+            ViewData["username"] = HttpContext.Session.GetString("username");
+            List<Object> thisModel = GetUserInfo();
+            string name = "";
+            string status = "";
+            string email = "";
+            string phone = "";
+            string ava = "";
+            string pass = "";
+            foreach (object item in thisModel)
+            {
+                name = item.GetType().GetProperty("name").GetValue(item, null).ToString();
+                status = item.GetType().GetProperty("status").GetValue(item, null).ToString();
+                email = item.GetType().GetProperty("email").GetValue(item, null).ToString();
+                phone = item.GetType().GetProperty("phone").GetValue(item, null).ToString();
+                ava = item.GetType().GetProperty("ava").GetValue(item, null).ToString();
+                pass = item.GetType().GetProperty("pass").GetValue(item, null).ToString();
+
+            }
+            int userid = getIDUser(account.UName);
+            account.UserID = userid;            
+            if (ModelState.IsValid)
+            {
+                string folder = "";
+                if (account.CoverPhoto != null)
+                {
+
+                    folder = "public/assets/ava/";
+                    folder += Guid.NewGuid().ToString() + "_" + account.CoverPhoto.FileName;
+                    string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
+                    /*account.UAva = await UploadImage(folder, bookModel.CoverPhoto);*/
+                    await account.CoverPhoto.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+                    account.UAva = "/" + folder;
+                }
+                else
+                {
+                    account.UAva = ava;
+                }
+                if(account.UName == null)
+                {
+                    account.UName = name;
+                }
+                if (account.UEmail == null)
+                {
+                    account.UEmail = email;
+                }
+                if (account.UPass == null)
+                {
+                    account.UPass = pass;
+                }
+                if (account.UPhone == null)
+                {
+                    account.UPhone = phone;
+                }
+                _context.Update(account);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("account", "Info"); ;
+
+            }
+
+            return Error();
         }
 
         public async Task<IActionResult> EditInfo()
@@ -145,12 +211,12 @@ namespace IS220M11.Controllers
             ViewData["username"] = HttpContext.Session.GetString("username");
             return View();
         }
-        public IFormFile CoverPhoto { get; set; }
+       /* public IFormFile CoverPhoto { get; set; }*/
         public List<Object> GetUserInfo()
         {
             var username = HttpContext.Session.GetString("username");
             ViewData["username"] = username;
-            int iduser = getIDfUser(username);
+            int iduser = getIDUser(username);
             var query = from account in _context.accounts
                         where account.UserID == iduser
                         select new
@@ -159,18 +225,49 @@ namespace IS220M11.Controllers
                             status = account.UStatus,
                             email = account.UEmail,
                             phone = account.UPhone,
-                            ava = account.UAva
+                            ava = account.UAva,
+                            pass = account.UPass
 
                         };
             List<object> a = query.ToList<object>();
             return a;
         }
-        
+        public IActionResult GetPostInterstJson()
+        {
+            var username = HttpContext.Session.GetString("username");
+            ViewData["username"] = username;
+            int iduser = getIDUser(username);
+            var query = from interest in _context.interests
+                        join post in _context.posts on interest.InPostID equals post.PostID
+                        where interest.InUserID == iduser
+                        select new
+                        {
+                            date = interest.InDate,
+                            tit = post.PTitle
+                        };
+            return new JsonResult(query);
+        }
+        public IActionResult GetPostUserJson()
+        {
+            var username = HttpContext.Session.GetString("username");
+            ViewData["username"] = username;
+            int iduser = getIDUser(username);
+            var query = from post in _context.posts
+                        where post.PUserID == iduser
+                        select new
+                        {
+                            date = post.PDate,
+                            tit = post.PTitle
+                        };
+            return new JsonResult(query);
+        }
+
+
         public List<Object> GetUserPost()
         {
             var username = HttpContext.Session.GetString("username");
             ViewData["username"] = username;
-            int iduser = getIDfUser(username);
+            int iduser = getIDUser(username);
             var query = from post in _context.posts
                         where post.PUserID == iduser
                         select new
@@ -190,6 +287,14 @@ namespace IS220M11.Controllers
             ViewData["username"] = HttpContext.Session.GetString("username");
             return View(infoModel);
         }
-
+        private bool accountModelExists(int id)
+        {
+            return _context.accounts.Any(e => e.UserID == id);
+        }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
 }
