@@ -1,10 +1,11 @@
 FINAL TASK
 --------------------------------------------------------------------------------------------------------------
+button: #a88a64
 --------------------------------------------------------------------------------------------------------------
 Trang home index:
-- Sửa cái style của list post
-- Detail chưa dân đc tới post 
-- Tin nhắn chưa load đc 
+- Sửa cái style của list post ĐÃ XONG (Trúc) 
+- Detail chưa dân đc tới post ĐÃ XONG (Trúc) 
+- Tin nhắn chưa load đc ĐÃ XONG (Trúc)  
 Trang user index:
 - Bấm tên user chưa ra trang thông tin cá nhân
 - Sửa style của list post
@@ -22,7 +23,7 @@ Trang thông tin cá nhân:
 Thêm hyperlink cho tên bài viết để bấm dô cái ra đc detail
 
 Trang post:
-- Hoàn thiện chức năng trang post - ĐÃ XONG 
+- Hoàn thiện chức năng trang post - ĐÃ XONG (Thắng) 
 
 Trang detail sản phẩm:
 - Sửa style 

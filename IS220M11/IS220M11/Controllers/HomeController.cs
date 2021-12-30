@@ -77,18 +77,11 @@ namespace IS220M11.Controllers
             return View(indexModel);
         }
         public IActionResult Index()
-        {   
-            var query = from post in _context.posts
-                        join pic in _context.pictures on post.PostID equals pic.IPostID
-                        where pic.IOrder == 1
-                        select new
-                        {
-                            price = post.PPrice,
-                            tit = post.PTitle,
-                            tnpic = pic.ILink
-                        };
-            List<object> a = query.ToList<object>();
-            return View(a);
+        {
+            dynamic indexModel = new ExpandoObject();
+            indexModel.Posts = GetPostPic();
+            indexModel.Chats = GetChatHis();
+            return View(indexModel);
         }
         public async Task<IActionResult> CreateMess(string mess, string user, string day)
         {
