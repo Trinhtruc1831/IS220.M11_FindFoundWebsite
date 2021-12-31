@@ -32,7 +32,7 @@ Trang thông tin người khác:
 
 Trang post:
 - Hoàn thiện chức năng trang tạo post - ĐÃ XONG (Thắng)
-- Chưa có chức năng edit bài viết (tham khảo edit tài khoản (account/editinfor)) 
+- Chưa có chức năng edit bài viết (tham khảo edit tài khoản (account/editinfor)) - ĐÃ XONG (Thắng)
 - Chưa có chức năng xóa bài viết
 
 Trang detail sản phẩm:
