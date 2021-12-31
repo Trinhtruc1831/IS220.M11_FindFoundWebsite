@@ -206,7 +206,7 @@ namespace IS220M11.Controllers
             return Error();
         }
 
-        public async Task<IActionResult> EditInfo()
+        public IActionResult EditInfo()
         {
             ViewData["username"] = HttpContext.Session.GetString("username");
             return View();

@@ -45,15 +45,17 @@
                     type: 'GET',
                     url: '/account/GetPostUserJson',
                     success: function (result) {
-                        var s = '<tr><th> Date </th><th> Title </th><th></th></tr>';
+                        var s = '<table class="table" ><tr><th style="width: 233px;"> Date </th><th style="width: 541px;"> Title </th><th></th></tr></table >'
+                            +'<div style="overflow:auto;"><table class="table" >';
                         for (var i = 0; i < result.length; i++) {
                             s += '<tr>';
-                            s += '<td>' + result[i].date + '</td>';
-                            s += '<td>' + result[i].tit + '</td>';
-                            s += '<td> <a href="#"" > Details</a > | <a href="#"> Delete</a ></td>';
+                            s += '<td style="width: 233px;">' + result[i].date + '</td>';
+                            s += '<td style="width: 541px;">' + result[i].tit + '</td>';
+                            s += '<td> <a href=".."" > Details</a > | <a href="#"> Delete</a ></td>';
                             s += '</tr>'
 
                         }
+                        s += '</table ></div>'
                         $('#customers').html(s);
                     }
                 });
@@ -67,15 +69,17 @@
                     type: 'GET',
                     url: '/account/GetPostInterstJson',
                     success: function (result) {
-                        var s = '<tr><th> Date </th><th> Title </th><th></th></tr>';
+                        var s = '<table class="table" ><tr><th style="width: 233px;"> Date </th><th style="width: 541px;"> Title </th><th></th></tr></table >'
+                            + '<div style="overflow:auto;"><table class="table" >';
                         for (var i = 0; i < result.length; i++) {
                             s += '<tr>';
-                            s += '<td>' + result[i].date + '</td>';
-                            s += '<td>' + result[i].tit + '</td>';
+                            s += '<td style="width: 233px;">' + result[i].date + '</td>';
+                            s += '<td style="width: 541px;">' + result[i].tit + '</td>';
                             s += '<td> <a a href="#">Edit</a> | <a href="#"" > Details</a > | <a href="#"> Delete</a ></td>';
                             s += '</tr>'
 
                         }
+                        s += '</table ></div>'
                         $('#customers').html(s);
                     }
                 });
@@ -88,15 +92,17 @@
                 type: 'GET',
                 url: '/account/GetPostUserJson',
                 success: function (result) {
-                    var s = '<tr><th> Date </th><th> Title </th><th></th></tr>';
+                    var s = '<table class="table" ><tr><th style="width: 233px;"> Date </th><th style="width: 541px;">Title </th><th></th></tr></table >'
+                        + '<div style="overflow:auto;"><table class="table" >';
                     for (var i = 0; i < result.length; i++) {
                         s += '<tr>';
-                        s += '<td>' + result[i].date + '</td>';
-                        s += '<td>' + result[i].tit + '</td>';
-                        s += '<td> <a a href="#">Edit</a> | <a href="../post/Post/' + result[i].postid+'" > Details</a > | <a href="#"> Delete</a ></td>';
+                        s += '<td style="width: 233px;">' + result[i].date + '</td>';
+                        s += '<td style="width: 541px;">' + result[i].tit + '</td>';
+                        s += '<td> <a href="#"" > Details</a > | <a href="#"> Delete</a ></td>';
                         s += '</tr>'
 
                     }
+                    s += '</table ></div>'
                     $('#customers').html(s);
                 }
             });
@@ -211,10 +217,8 @@
                         }
                 </style>
                 <div style="border: solid; border-color: #886e4b ; height: 25rem; border-radius: 8px">
-                    <div  class="card h-460px" style="width: 98%; border-radius: 8px;margin: 1% 1%;">
-                        <table class="table" id="customers">
-                            
-                        </table>
+                    <div id="customers" class="card h-460px" style="width: 98%; border-radius: 8px;margin: 1% 1%;">
+                        
 
                     </div>
 

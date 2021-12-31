@@ -31,23 +31,23 @@ Trang thông tin người khác:
 
 
 Trang post:
-- Hoàn thiện chức năng trang post - ĐÃ XONG (Thắng)
+- Hoàn thiện chức năng trang tạo post - ĐÃ XONG (Thắng)
 - Chưa có chức năng edit bài viết (tham khảo edit tài khoản (account/editinfor)) 
 - Chưa có chức năng xóa bài viết
 
 Trang detail sản phẩm:
-- Sửa style 
-- Thêm cái pane để xem đc nhiều ảnh khác của sp
+- Sửa style ĐÃ XONG (Trúc) 
+- Thêm cái pane để xem đc nhiều ảnh khác của sp ĐÃ XONG (Trúc) 
 - Thêm chức năng cho nút interest : bấm dô thì nó lưu dô mã user đó list interest post
 - Làm chức năng comment 
-- Thêm tên người đăng
+- Thêm tên người đăng ĐÃ XONG (Trúc) 
 
 
 Trang admin:
-- Trong user, khi bấm userinfo thì nó thêm search (nếu đc) -ĐÃ XONG (Thắng)
+- Trong user, khi bấm userinfo thì nó thêm search (nếu đc) 
 - List post: có chức năng delete, details
 - Member: có chức năng ban(status  = 0/1), detail,
-- Bỏ nút statistics
+- Bỏ nút statistics  - ĐÃ XONG (Thắng)
 
 => Lấy session user đầy đủ cho các trang 
 => Thêm hyperlink cho tên bài viết để bấm dô cái ra đc detail

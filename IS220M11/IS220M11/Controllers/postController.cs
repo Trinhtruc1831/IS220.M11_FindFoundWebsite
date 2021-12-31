@@ -105,13 +105,23 @@ namespace IS220M11.Controllers
             return Error();
         }
 
-        
+        public string GetPicPost(int id)
+        {
+            var query = from pic in _context.pictures
+                        where pic.IPostID == id
+
+                        where pic.IOrder == 1
+                        select new
+                        {
+                            tnpic = pic.ILink
+                        };
+            return query.FirstOrDefault().tnpic;
+        }
         public IActionResult Post(int? id)
         {
             var query = from post in _context.posts
                         join pic in _context.pictures on post.PostID equals pic.IPostID
                         join account in _context.accounts on post.PUserID equals account.UserID
-                        where pic.IOrder == 1
                         select new
                         {
                             postid = post.PostID,
@@ -119,6 +129,7 @@ namespace IS220M11.Controllers
                             tit = post.PTitle,
                             tnpic = pic.ILink,
                             tdesc = post.PDesc,
+                            porder = pic.IOrder,
                             postuser = account.UName
 
                         };
