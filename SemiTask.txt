@@ -44,7 +44,7 @@ Trang detail sản phẩm:
 
 
 Trang admin:
-- Trong user, khi bấm userinfo thì nó thêm search (nếu đc) 
+- Trong user, khi bấm userinfo thì nó thêm search (nếu đc) -ĐÃ XONG (Thắng)
 - List post: có chức năng delete, details
 - Member: có chức năng ban(status  = 0/1), detail,
 - Bỏ nút statistics
