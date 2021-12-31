@@ -10,6 +10,7 @@
     var price = "";
     var tnpic = "";
     var tdesc = "";
+    var postuser = "";
     var postid = TempData["postId"];
     @foreach (var item in Model)
     {
@@ -17,9 +18,10 @@
         if (item.GetType().GetProperty("postid").GetValue(item, null).ToString().Equals(postid.ToString()))
         {
             tit = item.GetType().GetProperty("tit").GetValue(item, null).ToString();
-            price = item.GetType().GetProperty("price").GetValue(item, null).ToString() + "vnđ";
+            price = "~"+@String.Format("{0:n0}", @item.GetType().GetProperty("price").GetValue(item, null))+"vnđ";
             tnpic = item.GetType().GetProperty("tnpic").GetValue(item, null).ToString();
             tdesc = item.GetType().GetProperty("tdesc").GetValue(item, null).ToString();
+            postuser = item.GetType().GetProperty("postuser").GetValue(item, null).ToString();
         }
     }
 
@@ -64,14 +66,14 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="~/public/assets/img/pagetop.png" alt="logo" title="Logo"></a>
+                <a class="navbar-brand js-scroll-trigger" href="@Url.Action("UserIndex", "Home")"><img src="~/public/assets/img/pagetop.png" alt="logo" title="Logo"></a>
                 <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("UserIndex", "Home")" id="userInput">@usn</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("Info", "account")" id="userInput">@usn</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about" id="about">About</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#donate">Donate</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("Logout", "account")">Logout</a></li>
@@ -89,11 +91,16 @@
                 <div class="col-md-6">
                     <h1 class="display-5 fw-bolder">@tit</h1>
                     <div class="fs-5 mb-5">
-                        <span class="text-decoration-line-through">@price</span>
+                        <span class="text-decoration-line-through">
+                            @price
+                        </span>
+                        <br />
+                        <a asp-controller="account" asp-action="GuestInfo" asp-route-id="@postuser" style="font-weight: 200!important; font-size: 100% !important; color: #444 !important ">@postuser</a>
+
                     </div>
+                   
                     <p class="lead">@tdesc</p>
                     <div class="d-flex">
-                        <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem" />
                         <button class="btn btn-outline-dark flex-shrink-0" type="button">
                             <i class="bi-cart-fill me-1"></i>
                             Interest
@@ -110,10 +117,10 @@
         <!-- Flickity HTML init -->
 
         <div class="gallery js-flickity" style="margin-left: 10%;margin-right: 10%">
-            @foreach (var item in Model)
+            @foreach (object item in Model)
             {
                 if (!(item.GetType().GetProperty("postid").GetValue(item, null).ToString().Equals(postid.ToString())))
-                {
+                { 
                     <div class="gallery-cell" style="margin-left: 20px;margin-right: 10px">
                         <div class="card h-460px" style="width: 200px;height: 300px; right: 230% !important;">
                             <!-- Product image-->
@@ -123,27 +130,27 @@
                                 int lentit = title.Length; ;
                                 if (lentit > 30)
                                 {
-                                    title = title.Substring(0, 27) + " ....";
+                                    title = title.Substring(0, 27) + "....";
                                     byte[] utfBytes = utf8.GetBytes(title);
                                     title = utf8.GetString(utfBytes);
                                 }
                             }
                             <img class="card-img-top" src="@item.GetType().GetProperty("tnpic").GetValue(item, null)" alt="..." />
                             <!-- Product details-->
-                            <div class="card-body p-4" style="height:290px">
-                                <div class="text-center">
+                            <div class="p-4">
+                                <div class="text-center" style="height:125px">
                                     <!-- Product name-->
                                     <a href="post.html" class="fw-bolder h-60px h5" style="color: #49371f;">@title</a>
                                 </div>
                                 <div class="text-center">
                                     <!-- Product price-->
-                                    <p>GKĐ: @item.GetType().GetProperty("price").GetValue(item, null) vnđ</p>
+                                    <p style="color: #49371f;font-size:18px!important"> </p>
                                 </div>
                             </div>
                             <!-- Product actions-->
-                            <form action="@Url.Action("Post", "post")">
-                                <input type="hidden" id="postId" name="postId" value="@item.GetType().GetProperty("postid").GetValue(item, null)">
-                                <div class="text-center"><input type="submit" value="Details"></div>
+
+                            <form asp-controller="post" asp-action="Post" asp-route-id="@item.GetType().GetProperty("postid").GetValue(item, null)">
+                                <div class="text-center"><input class="btn btn-outline-dark mt-auto" type="submit" value="Details"></div>
                             </form>
                         </div>
                     </div>

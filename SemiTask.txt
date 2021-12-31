@@ -1,4 +1,4 @@
-FINAL TASK
++FINAL TASK
 --------------------------------------------------------------------------------------------------------------
 button: #a88a64
 text: #49371f
@@ -26,13 +26,14 @@ Trang thông tin cá nhân:
 - Chưa có chức năng edit thông tin ĐÃ XONG (Trúc) 
 
 Trang thông tin người khác:
-- Chưa có
-- Chưa được link từ các nơi khác về
+- Chưa có ĐÃ XONG (Trúc) 
+- Chưa được link từ các nơi khác về ĐÃ XONG (Trúc) 
 
 
 Trang post:
 - Hoàn thiện chức năng trang post - ĐÃ XONG (Thắng)
 - Chưa có chức năng edit bài viết (tham khảo edit tài khoản (account/editinfor)) 
+- Chưa có chức năng xóa bài viết
 
 Trang detail sản phẩm:
 - Sửa style 

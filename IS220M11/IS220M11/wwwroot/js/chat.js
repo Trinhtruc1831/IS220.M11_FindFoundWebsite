@@ -13,12 +13,12 @@ connection.on("ReceiveMessage", function (user, message) {
     var dateTime = '['+date + ' ' + time+'] ';
     a.textContent = `${user}:`;
     li.className = "li-chat";
-    a.href = ""
+    a.href = "../account/Info";
     li.innerHTML = dateTime;
     li.appendChild(a);
     li.innerHTML += ` ${message}`;
     ul.insertBefore(li, ul.childNodes[0]);
-    
+    document.getElementById('messageInput').value = '';
    
 
 });

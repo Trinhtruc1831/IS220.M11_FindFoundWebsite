@@ -117,7 +117,7 @@ namespace IS220M11.Controllers
                         };
             return query.First().id;
         }
-        /*public async Task<IActionResult> EditCreatenekkkk(accountModel account)
+        /*public async Task<IActionResult> InfoCreatenekkkk(accountModel account)
         {
             ViewData["username"] = HttpContext.Session.GetString("username");
             if (ModelState.IsValid)
@@ -211,27 +211,6 @@ namespace IS220M11.Controllers
             ViewData["username"] = HttpContext.Session.GetString("username");
             return View();
         }
-       /* public IFormFile CoverPhoto { get; set; }*/
-        public List<Object> GetUserInfo()
-        {
-            var username = HttpContext.Session.GetString("username");
-            ViewData["username"] = username;
-            int iduser = getIDUser(username);
-            var query = from account in _context.accounts
-                        where account.UserID == iduser
-                        select new
-                        {
-                            name = account.UName,
-                            status = account.UStatus,
-                            email = account.UEmail,
-                            phone = account.UPhone,
-                            ava = account.UAva,
-                            pass = account.UPass
-
-                        };
-            List<object> a = query.ToList<object>();
-            return a;
-        }
         public IActionResult GetPostInterstJson()
         {
             var username = HttpContext.Session.GetString("username");
@@ -257,12 +236,31 @@ namespace IS220M11.Controllers
                         select new
                         {
                             date = post.PDate,
-                            tit = post.PTitle
+                            tit = post.PTitle,
+                            postid = post.PostID
                         };
             return new JsonResult(query);
         }
+        public List<Object> GetUserInfo()
+        {
+            var username = HttpContext.Session.GetString("username");
+            ViewData["username"] = username;
+            int iduser = getIDUser(username);
+            var query = from account in _context.accounts
+                        where account.UserID == iduser
+                        select new
+                        {
+                            name = account.UName,
+                            status = account.UStatus,
+                            email = account.UEmail,
+                            phone = account.UPhone,
+                            ava = account.UAva,
+                            pass = account.UPass
 
-
+                        };
+            List<object> a = query.ToList<object>();
+            return a;
+        }
         public List<Object> GetUserPost()
         {
             var username = HttpContext.Session.GetString("username");
@@ -273,7 +271,8 @@ namespace IS220M11.Controllers
                         select new
                         {
                             date = post.PDate,
-                            tit = post.PTitle
+                            tit = post.PTitle,
+                            postid = post.PostID
                         };
             List<object> a = query.ToList<object>();
             return a;
@@ -282,7 +281,52 @@ namespace IS220M11.Controllers
         {
             dynamic infoModel = new ExpandoObject();
             infoModel.Accounts = GetUserInfo();
-            infoModel.Posts = GetUserPost();
+            infoModel.Posts = GetUserPost();//Do dùng ajax r nên thực ra model này không sử dụng nữa
+            /*Get username session*/
+            ViewData["username"] = HttpContext.Session.GetString("username");
+            return View(infoModel);
+        }
+        public List<Object> GetGuestInfo(string user)
+        {
+            var username = HttpContext.Session.GetString("username");
+            ViewData["username"] = username;
+            int iduser = getIDUser(user);
+            var query = from account in _context.accounts
+                        where account.UserID == iduser
+                        select new
+                        {
+                            name = account.UName,
+                            status = account.UStatus,
+                            email = account.UEmail,
+                            phone = account.UPhone,
+                            ava = account.UAva,
+                            pass = account.UPass
+
+                        };
+            List<object> a = query.ToList<object>();
+            return a;
+        }
+        public List<Object> GetGuestPost(string user)
+        {
+            var username = HttpContext.Session.GetString("username");
+            ViewData["username"] = username;
+            int iduser = getIDUser(user);
+            var query = from post in _context.posts
+                        where post.PUserID == iduser
+                        select new
+                        {
+                            date = post.PDate,
+                            tit = post.PTitle,
+                            postid = post.PostID
+                        };
+            List<object> a = query.ToList<object>();
+            return a;
+        }
+        public async Task<IActionResult> GuestInfo(string? id)
+        {
+            dynamic infoModel = new ExpandoObject();
+            infoModel.Accounts = GetGuestInfo(id);
+            infoModel.Posts = GetGuestPost(id);
             /*Get username session*/
             ViewData["username"] = HttpContext.Session.GetString("username");
             return View(infoModel);

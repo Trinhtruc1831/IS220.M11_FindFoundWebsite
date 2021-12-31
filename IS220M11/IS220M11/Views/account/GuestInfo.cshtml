@@ -35,70 +35,12 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.7/js/min/perfect-scrollbar.jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
         @* For interest of user *@
         $(document).ready(function () {
-            $('#buttonDemo4').click(function () {
-                $.ajax({
-                    type: 'GET',
-                    url: '/account/GetPostUserJson',
-                    success: function (result) {
-                        var s = '<tr><th> Date </th><th> Title </th><th></th></tr>';
-                        for (var i = 0; i < result.length; i++) {
-                            s += '<tr>';
-                            s += '<td>' + result[i].date + '</td>';
-                            s += '<td>' + result[i].tit + '</td>';
-                            s += '<td> <a href="#"" > Details</a > | <a href="#"> Delete</a ></td>';
-                            s += '</tr>'
-
-                        }
-                        $('#customers').html(s);
-                    }
-                });
-            });
-
-        });
-    @*For post of user*@
-        $(document).ready(function () {
-            $('#buttonDemo3').click(function () {
-                $.ajax({
-                    type: 'GET',
-                    url: '/account/GetPostInterstJson',
-                    success: function (result) {
-                        var s = '<tr><th> Date </th><th> Title </th><th></th></tr>';
-                        for (var i = 0; i < result.length; i++) {
-                            s += '<tr>';
-                            s += '<td>' + result[i].date + '</td>';
-                            s += '<td>' + result[i].tit + '</td>';
-                            s += '<td> <a a href="#">Edit</a> | <a href="#"" > Details</a > | <a href="#"> Delete</a ></td>';
-                            s += '</tr>'
-
-                        }
-                        $('#customers').html(s);
-                    }
-                });
-            });
-
-        });
-        @* Default post of user *@
-        $(document).ready(function () {
-            $.ajax({
-                type: 'GET',
-                url: '/account/GetPostUserJson',
-                success: function (result) {
-                    var s = '<tr><th> Date </th><th> Title </th><th></th></tr>';
-                    for (var i = 0; i < result.length; i++) {
-                        s += '<tr>';
-                        s += '<td>' + result[i].date + '</td>';
-                        s += '<td>' + result[i].tit + '</td>';
-                        s += '<td> <a a href="#">Edit</a> | <a href="../post/Post/' + result[i].postid+'" > Details</a > | <a href="#"> Delete</a ></td>';
-                        s += '</tr>'
-
-                    }
-                    $('#customers').html(s);
-                }
+            $('#contact').click(function () {
+                alert("Hi! Chức năng đang dần được hoàn thiện trong lần nâng cấp tới!")
             });
 
         });
@@ -163,8 +105,8 @@
                                 <p style="margin: 1% 2%; padding: 0% 2%; background-color: #ead5b5; font-weight: bold; color: #886e4b; border-radius: 8px; font-size: 60%">Status: @status</p>
                             </div>
                         }
-                        <form asp-action="EditInfo" asp-controller="account"  style="text-align: center !important ;height:30px;margin: 5% 2%; padding: 2% 2%;background-color: #a88a64;font-weight: bold;border-radius: 8px; font-size: 80%;">
-                            <input style=" color: #f5f3f3ef; font-weight: bold" type="submit" value="Edit Info">
+                        <form style="text-align: center !important ;height:30px;margin: 5% 2%; padding: 2% 2%;background-color: #a88a64;font-weight: bold;border-radius: 8px; font-size: 80%;">
+                            <input id="contact" style=" color: #f5f3f3ef; font-weight: bold" type="submit" value="Report">
                         </form>
 
                     </div>
@@ -173,8 +115,7 @@
             </div>
             <div style="width: 1000px; margin-left: 15px">
                 <div class="row">
-                    <p style="margin-left: 30px;margin-bottom: 7px; margin-top: 10px; padding: 2px 10px; background-color: #ead5b5; font-weight: bold; color: #705637; border-radius: 8px; font-size: 100%"><a href="javascript:void(0)" id="buttonDemo4" style="color: #705637 !important">My post</a></p>
-                    <p style="margin-left: 3px;margin-bottom: 7px; margin-top: 10px; padding: 2px 10px; background-color: #ead5b5; font-weight: bold; color: #705637; border-radius: 8px; font-size: 100%"><a href="javascript:void(0)" id="buttonDemo3" style="color: #705637 !important">Interest</a></p>
+                    <p style="margin-left: 30px;margin-bottom: 7px; margin-top: 10px; padding: 2px 10px; background-color: #ead5b5; font-weight: bold; color: #705637; border-radius: 8px; font-size: 100%"><a href="javascript:void(0)" id="buttonDemo4" style="color: #705637 !important">List of posts</a></p>
                 </div>
 
                 <style>
@@ -213,7 +154,25 @@
                 <div style="border: solid; border-color: #886e4b ; height: 25rem; border-radius: 8px">
                     <div  class="card h-460px" style="width: 98%; border-radius: 8px;margin: 1% 1%;">
                         <table class="table" id="customers">
-                            
+                            <tr>
+                                <th>
+                                    Date
+                                </th>
+                                <th>
+                                    Title
+                                </th>
+                            </tr>
+                            @foreach (object item in Model.Posts)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.GetType().GetProperty("date").GetValue(item, null)
+                                    </td>
+                                    <td>
+                                        <a asp-controller="post" asp-action="Post" asp-route-id="@item.GetType().GetProperty("postid").GetValue(item, null)">@item.GetType().GetProperty("tit").GetValue(item, null)</a>
+                                    </td> 
+                                </tr>
+                            }
                         </table>
 
                     </div>
@@ -221,7 +180,7 @@
                 </div>
             </div>
             </div>
-</section>
+    </section>
     <!-- Donate Section-->
     <section class="page-section" id="donate">
         <div class="container">
@@ -259,6 +218,5 @@
     <script src="~/public/js/searchNav.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script src="~/public/js/flickity.pkgd.min.js"></script>
-
 </body>
 </html>

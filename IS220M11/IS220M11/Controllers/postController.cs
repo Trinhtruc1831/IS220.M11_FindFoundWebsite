@@ -64,6 +64,16 @@ namespace IS220M11.Controllers
                         };
             return query.FirstOrDefault().UserID;
         }
+        public string GetUserName(int id)
+        {
+            var query = from account in _context.accounts
+                        where account.UserID == id
+                        select new
+                        {
+                            UserName = account.UName
+                        };
+            return query.FirstOrDefault().UserName;
+        }
         public IActionResult Create()
         {
             ViewData["username"] = HttpContext.Session.GetString("username");
@@ -96,10 +106,11 @@ namespace IS220M11.Controllers
         }
 
         
-        public IActionResult Post(int postId)
+        public IActionResult Post(int? id)
         {
             var query = from post in _context.posts
                         join pic in _context.pictures on post.PostID equals pic.IPostID
+                        join account in _context.accounts on post.PUserID equals account.UserID
                         where pic.IOrder == 1
                         select new
                         {
@@ -107,10 +118,11 @@ namespace IS220M11.Controllers
                             price = post.PPrice,
                             tit = post.PTitle,
                             tnpic = pic.ILink,
-                            tdesc = post.PDesc
+                            tdesc = post.PDesc,
+                            postuser = account.UName
 
                         };
-            TempData["postId"] = postId;
+            TempData["postId"] = id;
             ViewData["username"] = HttpContext.Session.GetString("username");
             List<object> a = query.ToList<object>();
             return View(a);
