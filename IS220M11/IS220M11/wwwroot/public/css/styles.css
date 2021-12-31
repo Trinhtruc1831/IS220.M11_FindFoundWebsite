@@ -2681,8 +2681,8 @@ fieldset:disabled a.btn {
 
     .btn-primary:hover {
         color: #fff;
-        background-color: #159a80;
-        border-color: #148f77;
+        background-color: #a88a64;
+        border-color: #a88a64;
     }
 
     .btn-primary:focus, .btn-primary.focus {
@@ -8369,7 +8369,7 @@ button.bg-dark:focus {
 
 .mb-5,
 .my-5 {
-    margin-bottom: 3rem !important;
+    margin-bottom: 1rem !important;
 }
 
 .ml-5,

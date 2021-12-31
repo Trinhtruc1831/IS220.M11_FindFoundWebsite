@@ -32,14 +32,13 @@ Trang thông tin người khác:
 
 Trang post:
 - Hoàn thiện chức năng trang tạo post - ĐÃ XONG (Thắng)
-- Chưa có chức năng edit bài viết (tham khảo edit tài khoản (account/editinfor)) - ĐÃ XONG (Thắng)
+- Chưa có chức năng edit bài viết (tham khảo edit tài khoản (account/editinfor)) 
 - Chưa có chức năng xóa bài viết
 
 Trang detail sản phẩm:
 - Sửa style ĐÃ XONG (Trúc) 
 - Thêm cái pane để xem đc nhiều ảnh khác của sp ĐÃ XONG (Trúc) 
-- Thêm chức năng cho nút interest : bấm dô thì nó lưu dô mã user đó list interest post
-- Làm chức năng comment 
+- Thêm chức năng cho nút interest : bấm dô thì nó lưu dô mã user đó list interest post  ĐÃ XONG (Trúc) 
 - Thêm tên người đăng ĐÃ XONG (Trúc) 
 
 
@@ -49,7 +48,7 @@ Trang admin:
 - Member: có chức năng ban(status  = 0/1), detail,
 - Bỏ nút statistics  - ĐÃ XONG (Thắng)
 
-=> Lấy session user đầy đủ cho các trang 
-=> Thêm hyperlink cho tên bài viết để bấm dô cái ra đc detail
-=> Trang login: bỏ quên mật khẩu đi, chỉ làm sign up
-=> Phân quyền đầy đủ các trang
+=> Lấy session user đầy đủ cho các trang  ĐÃ XONG (Trúc) 
+=> Thêm hyperlink cho tên bài viết để bấm dô cái ra đc detail  ĐÃ XONG (Trúc) 
+=> Trang login: bỏ quên mật khẩu đi, chỉ làm sign up  ĐÃ XONG (Trúc) 
+=> Phân quyền đầy đủ các trang  ĐÃ XONG (Trúc) 

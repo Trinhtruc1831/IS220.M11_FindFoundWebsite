@@ -117,7 +117,11 @@ namespace IS220M11.Controllers
                         };
             return query.First().id;
         }
-        /*public async Task<IActionResult> InfoCreatenekkkk(accountModel account)
+        public IActionResult Createaccount()
+        {
+            return View();
+        }
+        public async Task<IActionResult> CreateInfo(accountModel account)
         {
             ViewData["username"] = HttpContext.Session.GetString("username");
             if (ModelState.IsValid)
@@ -127,21 +131,24 @@ namespace IS220M11.Controllers
                 {
 
                     folder = "public/assets/ava/";
-                    folder += Guid.NewGuid().ToString() +"_"+  account.CoverPhoto.FileName;
+                    folder += Guid.NewGuid().ToString() + "_" + account.CoverPhoto.FileName;
                     string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
-                    *//*account.UAva = await UploadImage(folder, bookModel.CoverPhoto);*//*
-                    await account.CoverPhoto.CopyToAsync(new FileStream(serverFolder,FileMode.Create));
+                    /*account.UAva = await UploadImage(folder, bookModel.CoverPhoto);*/
+                    await account.CoverPhoto.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+                    account.UAva = "/" + folder;
                 }
-                account.UAva = "/"+folder;
+                else
+                {
+                    account.UAva = "/public/assets/ava/default.png";
+                }
                 await _context.accounts.AddAsync(account);
                 await _context.SaveChangesAsync();
-                return Ok();
+                return RedirectToAction("Login", "account");
 
             }
 
             return Ok();
-        }*/
-        
+        }
         public async Task<IActionResult> Edit(accountModel account)
         {
             ViewData["username"] = HttpContext.Session.GetString("username");
@@ -199,13 +206,13 @@ namespace IS220M11.Controllers
                 }
                 _context.Update(account);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("account", "Info"); ;
+                return RedirectToAction("Info", "account");
 
             }
 
             return Error();
         }
-
+        [Authorize(Roles = "User")]
         public IActionResult EditInfo()
         {
             ViewData["username"] = HttpContext.Session.GetString("username");
@@ -221,6 +228,7 @@ namespace IS220M11.Controllers
                         where interest.InUserID == iduser
                         select new
                         {
+                            postid = interest.InPostID,
                             date = interest.InDate,
                             tit = post.PTitle
                         };
@@ -277,6 +285,7 @@ namespace IS220M11.Controllers
             List<object> a = query.ToList<object>();
             return a;
         }
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> Info()
         {
             dynamic infoModel = new ExpandoObject();
@@ -322,6 +331,7 @@ namespace IS220M11.Controllers
             List<object> a = query.ToList<object>();
             return a;
         }
+        [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GuestInfo(string? id)
         {
             dynamic infoModel = new ExpandoObject();
@@ -331,6 +341,37 @@ namespace IS220M11.Controllers
             ViewData["username"] = HttpContext.Session.GetString("username");
             return View(infoModel);
         }
+
+
+        public async Task<IActionResult> CreateInterest(int id)
+        {
+            interestModel interest = new interestModel();
+            string username = HttpContext.Session.GetString("username");
+            int userid = getIDUser(username);
+            DateTime thisDay = DateTime.Today;
+            interest.InUserID = userid;
+            interest.InPostID = id;
+            interest.InDate = thisDay;
+            var test = await _context.interests.FindAsync(id, userid);
+            if ((ModelState.IsValid) & (test == null))
+            {
+                _context.Add(interest);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Post","post",new { id=id});
+            }
+            ViewData["username"] = username;
+            return RedirectToAction("Post", "post", new { id = id });
+        }
+        public async Task<IActionResult> DeleteInterest(int id)
+        {
+            string username = HttpContext.Session.GetString("username");
+            int userid = getIDUser(username);
+            var interestModel = await _context.interests.FindAsync(id, userid);
+            _context.interests.Remove(interestModel);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Info","account");
+        }
+
         private bool accountModelExists(int id)
         {
             return _context.accounts.Any(e => e.UserID == id);

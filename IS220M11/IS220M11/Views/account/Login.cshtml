@@ -4,10 +4,17 @@
 }
 <br>
 <br>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#fg').click(function () {
+            alert("Hi! Chức năng đang dần được hoàn thiện trong lần nâng cấp tới!")
+        });
 
+    });
+</script>
 <h1 style="font-weight: bolder;font-family: 'Nanum Gothic', sans-serif;color: #a88a64;font-size: 35pt;">Login</h1>
 
-<form style="margin-left:30%;margin-right:10%;margin-bottom:10%;" enctype="multipart/form-data" asp-action="Login" method="post">
+<form style="margin-left:15%;margin-right:10%;margin-bottom:10%;" enctype="multipart/form-data" asp-action="Login" method="post">
     <div class="container">
         <input class="textbox" style="height: 45px;width: 60%;" type="text" placeholder="Enter username" name="username">
         <input class="textbox" style="height: 45px;width: 60%;" type="password" id="myInput" placeholder="Enter password" name="pass">
@@ -18,10 +25,36 @@
         <!-- Real button -->
         <!-- <button href="" style="height: 45px;width: 60%;" type="submit" name="btnLogin" class="btn btn-primary">Login</button> -->
         <p>
-            <a href="Login/ForgotPassword">Forgot Password ?</a>
-            <a href="Login/Register">Sign up</a>
+            <a id="fg" href="Login/ForgotPassword">Forgot Password ?</a>
+            <a asp-controller="account" asp-action="Createaccount">Sign up</a>
         </p>
 
 
     </div>
 </form>
+<section class="page-section text-white mb-0" style="background-size: 100% 100%; background-image: url('/public/assets/img/about.png');  " id="about">
+    <div class="container">
+        <!-- About Section Heading-->
+        <h5 class="page-section-heading text-center text-light text-uppercase " style="font-family: 'Caveat', cursive; font-size: 3.5rem;margin-top: 150px">About us</h5>
+
+        <!-- About Section Content-->
+        <div class="row">
+            <div class="col-12">
+                <p class="lead text-light" style="text-align: center; font-family: 'Caveat', cursive; font-size: 3rem;  ">We are relaxing, not doing anything special, yet content with ourselves.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- Donate Section-->
+<section class="page-section" id="donate">
+    <div class="container">
+        <!-- Donate Section Heading-->
+        <h2 class=" text-center text-secondary mb-0" style="font-size: 1.5rem;">Buy us a coffee ☕</h2>
+        <!-- Icon Divider-->
+        <br>
+        <br>
+        <img src="/public/assets/img/donate.png" alt="Girl in a jacket" style="width:100px;" class="center">
+    </div>
+</section>

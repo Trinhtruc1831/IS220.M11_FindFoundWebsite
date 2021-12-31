@@ -82,6 +82,7 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about" id="about">About</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#donate">Donate</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="@Url.Action("Logout", "account")">Logout</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -121,15 +122,15 @@
                         </a>
                     </div>
                 @*</div>*@
-                <div class="col-md-6">
-                    <h1 class="display-5 fw-bolder">@tit</h1>
-                    <div class="fs-5 mb-5">
-                        <span class="text-decoration-line-through">
-                            @price
-                        </span>
-                        <br />
-                        <a href="javascript:void(0)" id="@postuser" style="font-weight: 200!important; font-size: 100% !important; color: #444 !important ">@postuser</a>
-                        <script type="text/javascript">
+            <div class="col-md-6">
+                <h1 class="display-5 fw-bolder">@tit</h1>
+                <div class="fs-5 mb-5">
+                    <span class="text-decoration-line-through">
+                        <b style="color: #444 !important; font-weight: 600 !important">Price about:</b> @price
+                    </span>
+                    <br />
+                    <b style="color: #444 !important; font-weight: 600 !important">Owner: </b><a href="javascript:void(0)" id="@postuser" style="font-weight: 200!important; font-size: 100% !important; color: #444 !important ">@postuser</a>
+                    <script type="text/javascript">
                             @* Check is loggin-ing account *@
                             $(document).ready(function () {
                                 $('#@postuser').click(function () {
@@ -141,17 +142,17 @@
                                     }
                                     });
                                 });
-                        </script>
-                    </div>
-
-                    <p class="lead">@tdesc</p>
-                    <div class="d-flex">
-                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                            <i class="bi-cart-fill me-1"></i>
-                            Interest
-                        </button>
-                    </div>
+                    </script>
                 </div>
+                <div class="fs-5 mb-5">
+                    <form id="chatForm" asp-controller="account" asp-action="CreateInterest" data-ajax="true" data-ajax-method="POST">
+                        <input type="hidden" title="Click to add to interest list!" id="id" name="id" value="@postid">
+                        <button type="submit" style="background:none !important; text-align:center !important"><i class="fas fa-heart" style="width:30px;color: darkred"></i></button>
+                    </form>
+                </div>
+                <p class="lead">@tdesc</p>
+                
+            </div>
             </div>
         </div>
 
@@ -203,12 +204,12 @@
             }
         </div>
     </section>
-    <!-- Chatbox Section-->
-    <section class="mb-5" style="margin: 2% 14%;">
+    <!-- Comment Section-->
+    <!--<section class="mb-5" style="margin: 2% 14%;">
         <div class="card bg-light">
-            <div class="card-body">
+            <div class="card-body">-->
                 <!-- Comment form-->
-                <form class="mb-4">
+                <!--<form class="mb-4">
                     <div class="row">
                         <textarea class="form-control" rows="2" style="width: 85%;margin-left: 2%;" placeholder="Join the discussion and leave a comment!"></textarea>
                         <div class="col" style="padding-left: 2%;">
@@ -216,26 +217,26 @@
                             <a href="javascript:void(0)" class="btn btn-primary" style="margin-top: 3%; width: 98%;"><i class="fas fa-paper-plane"></i></a>
                         </div>
                     </div>
-                </form>
+                </form>-->
                 <!-- Comment with nested comments-->
-                <div class="d-flex mb-4" style="margin: 0% 2%;">
+                <!--<div class="d-flex mb-4" style="margin: 0% 2%;">-->
                     <!-- Parent comment-->
-                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                    <!--<div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                     <div class="ms-3">
 
                         <a class="fw-bold" style="margin-left: 1%;">Nhox2k:</a>
-                        If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
+                        If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.-->
                         <!-- Child comment 1-->
-                        <div class="d-flex mt-4">
+                        <!--<div class="d-flex mt-4">
                             <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                             <div class="ms-3">
 
                                 <a class="fw-bold" style="margin-left: 1%;">PeNhiLovely:</a>
                                 And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
                             </div>
-                        </div>
+                        </div>-->
                         <!-- Child comment 2-->
-                        <div class="d-flex mt-4">
+                        <!--<div class="d-flex mt-4">
                             <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                             <div class="ms-3">
                                 <a class="fw-bold" style="margin-left: 1%;">HungCa:</a>
@@ -243,9 +244,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <!-- Single comment-->
-                <div class="d-flex">
+                <!--<div class="d-flex">
                     <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                     <div class="ms-3">
                         <a class="fw-bold" style="margin-left: 1%;">LangTuMuaDong1986:</a>
@@ -254,7 +255,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
     <!-- Blank -->
     <section class="page-section text-white mb-0" style="background-size: 100% 100%; background-image: url('/public/assets/img/plank.png');  " id="chatbox"></section>
     <!-- About Section-->

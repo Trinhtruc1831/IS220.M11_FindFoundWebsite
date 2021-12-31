@@ -9,6 +9,7 @@ using System.Text;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IS220M11.Controllers
 {
@@ -74,6 +75,7 @@ namespace IS220M11.Controllers
                         };
             return query.FirstOrDefault().UserName;
         }
+        [Authorize(Roles = "User")]
         public IActionResult Create()
         {
             ViewData["username"] = HttpContext.Session.GetString("username");
@@ -117,6 +119,7 @@ namespace IS220M11.Controllers
                         };
             return query.FirstOrDefault().tnpic;
         }
+        [Authorize(Roles = "User,Admin")]
         public IActionResult Post(int? id)
         {
             var query = from post in _context.posts

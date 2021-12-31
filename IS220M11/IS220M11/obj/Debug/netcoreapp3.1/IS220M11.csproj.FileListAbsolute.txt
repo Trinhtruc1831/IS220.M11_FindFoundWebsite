@@ -633,3 +633,5 @@ D:\Hữu Thắng\FRAMEWORK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\net
 D:\Hữu Thắng\FRAMEWORK\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\admin\ListPost.cshtml.g.cs
 C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\post\HomePost.cshtml.g.cs
 C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\account\GuestInfo.cshtml.g.cs
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\account\CreateInfo.cshtml.g.cs
+C:\Users\19521\source\repos\framework_IS220.M11_3\IS220M11\IS220M11\obj\Debug\netcoreapp3.1\Razor\Views\account\Createaccount.cshtml.g.cs

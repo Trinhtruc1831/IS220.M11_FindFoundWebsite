@@ -1574,7 +1574,7 @@ code .flickity { text-decoration: underline; }
 ------------------------- */
 
 .carousel {
-  background: #FAFAFA;
+  background: none;
   margin-bottom: 30px;
   counter-reset: carousel-cell;
 }

@@ -38,7 +38,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
-        @* For interest of user *@
+        @* For post of user *@
         $(document).ready(function () {
             $('#buttonDemo4').click(function () {
                 $.ajax({
@@ -51,7 +51,7 @@
                             s += '<tr>';
                             s += '<td style="width: 233px;">' + result[i].date + '</td>';
                             s += '<td style="width: 541px;">' + result[i].tit + '</td>';
-                            s += '<td> <a href=".."" > Details</a > | <a href="#"> Delete</a ></td>';
+                            s += '<td> <a href="../post/Post/' + result[i].postid + '" > Details</a >  |<a href="#" > Delete</a ></td>';
                             s += '</tr>'
 
                         }
@@ -62,7 +62,8 @@
             });
 
         });
-    @*For post of user*@
+   
+        @* For interest of user *@
         $(document).ready(function () {
             $('#buttonDemo3').click(function () {
                 $.ajax({
@@ -75,7 +76,7 @@
                             s += '<tr>';
                             s += '<td style="width: 233px;">' + result[i].date + '</td>';
                             s += '<td style="width: 541px;">' + result[i].tit + '</td>';
-                            s += '<td> <a a href="#">Edit</a> | <a href="#"" > Details</a > | <a href="#"> Delete</a ></td>';
+                            s += '<td> <a href="../post/Post/' + result[i].postid + '" > Details</a > |<a href="../account/DeleteInterest/'+result[i].postid +'"> Delete</a ></td>';
                             s += '</tr>'
 
                         }
@@ -98,7 +99,7 @@
                         s += '<tr>';
                         s += '<td style="width: 233px;">' + result[i].date + '</td>';
                         s += '<td style="width: 541px;">' + result[i].tit + '</td>';
-                        s += '<td> <a href="#"" > Details</a > | <a href="#"> Delete</a ></td>';
+                        s += '<td> <a href="../post/Post/' + result[i].postid +'" > Details</a > |  <a href="#"> Delete</a ></td>';
                         s += '</tr>'
 
                     }
