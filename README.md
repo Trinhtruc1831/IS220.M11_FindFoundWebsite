@@ -17,3 +17,5 @@ This repository stores our solutions for all problems in the IS220.M11 - XÃ¢y dá
 
 ## Status of repository
 1. Demo home page: https://trinhtruc1831.github.io/findnfound.github.io/
+2. Install: git clone https://github.com/Trinhtruc1831/framework_IS220.M11_3
+
