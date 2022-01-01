@@ -1,6 +1,6 @@
-@model IS220M11.Models.pictureModel
+@model IS220M11.Models.postModel
 @{
-    ViewData["Title"] = "AddImage";
+    ViewData["Title"] = "Create";
 }
 
 
@@ -81,29 +81,46 @@
     <section class="page-section py-5" style="margin-top: 5rem;">
         <div class="x_panel" style="margin-left: 30%;">
             <div class="x_title" style="margin-left: 7%;">
-                <h2>Thêm hình ảnh sản phẩm </h2>
+                <h2>Edit your post </h2>
 
                 <div class="clearfix"></div>
             </div>
 
             <div class="x_content">
                 <br />
-                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="POST"
-                    asp-action="AddImage" asp-controller="picture" enctype="multipart/form-data">
-                    @* <input type="hidden" value=@postid name="postid"> *@
+                <form data-parsley-validate class="form-horizontal form-label-left" method="POST" asp-action="Create"
+                    enctype="multipart/form-data">
+                    <input type="hidden" value=@usn name="user">
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="Image">Hình ảnh sản phẩm
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="PTitle">Post Name <span
+                                class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="file" asp-for="Image" id="Image" required="required" class="form-control">
+                            <input type="text" id="PTitle" required="required" class="form-control" asp-for="PTitle">
                         </div>
                     </div>
-
-                    <div class="item form-group" style="margin-left: 30px;">
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="PDesc">Description
+                            <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" required="required" class="form-control" asp-for="PDesc">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="PPrice">Price <span
+                                class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" required="required" class="form-control" asp-for="PPrice">
+                        </div>
+                    </div>
+                    @* <p>@postid</p> *@
+                    <div class="item form-group" style="margin-left: 30px;"> 
                         <div>
-                            <button class="btn btn-primary" type="submit">More</button>
+                            <button class="btn btn-primary" type="submit">Update</button>
                             <button class="btn btn-primary" type="reset">Reset</button>
-                            <a class="btn btn-success" asp-controller="post" asp-action="Post" asp-route-id="@postid">Complete</a>
+                            <a class="btn btn-success" asp-controller="account" asp-action="Info" >Back to list</a>
                         </div>
                     </div>
 

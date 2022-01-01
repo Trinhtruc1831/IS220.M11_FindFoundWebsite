@@ -133,7 +133,6 @@ namespace IS220M11.Controllers
                     folder = "public/assets/ava/";
                     folder += Guid.NewGuid().ToString() + "_" + account.CoverPhoto.FileName;
                     string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
-                    /*account.UAva = await UploadImage(folder, bookModel.CoverPhoto);*/
                     await account.CoverPhoto.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
                     account.UAva = "/" + folder;
                 }
@@ -212,7 +211,7 @@ namespace IS220M11.Controllers
 
             return Error();
         }
-        [Authorize(Roles = "User")]
+        
         public IActionResult EditInfo()
         {
             ViewData["username"] = HttpContext.Session.GetString("username");
@@ -285,7 +284,7 @@ namespace IS220M11.Controllers
             List<object> a = query.ToList<object>();
             return a;
         }
-        [Authorize(Roles = "User")]
+        
         public async Task<IActionResult> Info()
         {
             dynamic infoModel = new ExpandoObject();
@@ -331,7 +330,7 @@ namespace IS220M11.Controllers
             List<object> a = query.ToList<object>();
             return a;
         }
-        [Authorize(Roles = "User,Admin")]
+        
         public async Task<IActionResult> GuestInfo(string? id)
         {
             dynamic infoModel = new ExpandoObject();

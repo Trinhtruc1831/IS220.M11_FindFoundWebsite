@@ -36,8 +36,20 @@
             color: #49371f;
         }
 </style>
+<script  type="text/javascript">
+                    function alertFunction() {
+                        alert("Hi! Chức năng đang dần được hoàn thiện trong lần nâng cấp tới!");
+                    }
+</script>
 <div class="container-fluid px-4">
     <h1 class="mt-4" style="color: #49371f">Post management</h1>
+    <form method="get" asp-action="ListPost" >
+        <p>
+            <input type="search" placeholder="Enter post title to search !" value="@ViewData["Getpostdetails"]" name="Postsearch" style="width:500px;" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-action="ListPost">Get All Post</a>
+        </p>
+    </form>
     <table class="table" id="customers">
         <tr>
             <th>
@@ -82,9 +94,8 @@
                     @Html.DisplayFor(modelItem => item.PDate)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.PostID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.PostID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.PostID">Delete</a>
+                   <a asp-controller="post" asp-action="Post" asp-route-id="@item.PostID">Details</a> |
+                    <a onclick="alertFunction()"  href="javascript:void(0)" >Delete</a>
                 </td>
             </tr>
         }

@@ -4,12 +4,20 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using System.Text;
-using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using System.Dynamic;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
+
 
 namespace IS220M11.Controllers
 {
@@ -140,10 +148,63 @@ namespace IS220M11.Controllers
             ViewData["username"] = HttpContext.Session.GetString("username");
             List<object> a = query.ToList<object>();
             return View(a);
-
-
         }
 
+        public int getIDPost(string post)
+        {
+            var query = from p in _context.posts
+                        where p.PTitle == post
+                        select new
+                        {
+                            id = p.PostID
+                        };
+            return query.FirstOrDefault().id;
+        }
+        public async Task<IActionResult> Edit(postModel post)
+        {
+            ViewData["username"] = HttpContext.Session.GetString("username");
+            IQueryable thisModel = GetPostTit();
+            string title = "";
+            string desc = "";
+            string price = "";
+            
+            foreach (object item in thisModel)
+            {
+                title = item.GetType().GetProperty("title").GetValue(item, null).ToString();
+                desc = item.GetType().GetProperty("desc").GetValue(item, null).ToString();
+                price = item.GetType().GetProperty("price").GetValue(item, null).ToString();
+                // phone = item.GetType().GetProperty("phone").GetValue(item, null).ToString();
+            }
+            int postid = getIDPost(post.PTitle);
+            post.PostID = postid;            
+            if (ModelState.IsValid)
+            {
+                if(post.PTitle == null)
+                {
+                    post.PTitle = title;
+                }
+                if (post.PDesc == null)
+                {
+                    post.PDesc = desc;
+                }
+                if (post.PPrice.ToString() == null)
+                {
+                    post.PPrice = Int32.Parse(price);
+                }
+                _context.Update(post);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("post", "Post"); 
+
+            }
+
+            return Error();
+        }
+        public async Task<IActionResult> EditPost(int id)
+        {
+            ViewData["postid"]= id;
+            ViewData["username"] = HttpContext.Session.GetString("username");
+            return View();
+        }
     }
 
 }

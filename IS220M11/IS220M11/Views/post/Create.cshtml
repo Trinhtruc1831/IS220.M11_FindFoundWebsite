@@ -7,6 +7,9 @@
 @{
     var usn = @ViewData["username"];
 }
+@{
+    var postid = @ViewData["postid"];
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +81,7 @@
     <section class="page-section py-5" style="margin-top: 5rem;">
         <div class="x_panel" style="margin-left: 30%;">
             <div class="x_title" style="margin-left: 7%;">
-                <h2>Thêm sản phẩm mới </h2>
+                <h2>Create your post </h2>
 
                 <div class="clearfix"></div>
             </div>
@@ -115,9 +118,9 @@
 
                     <div class="item form-group" style="margin-left: 30px;">
                         <div>
-                            <button class="btn btn-primary" type="submit">Thêm</button>
+                            <button class="btn btn-primary" type="submit">Create</button>
                             <button class="btn btn-primary" type="reset">Reset</button>
-                            <a class="btn btn-success" href="@Url.Action("Post", "post")">Danh sách sản phẩm</a>
+                            <a class="btn btn-success" asp-controller="account" asp-action="Info" asp-route-id="@postid">Back to list</a>
                         </div>
                     </div>
 

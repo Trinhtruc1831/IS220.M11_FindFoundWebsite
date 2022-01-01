@@ -26,9 +26,23 @@ namespace IS220M11.Controllers
             return View(await _context.accounts.ToListAsync());
         }
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> ListMember()
+        public IActionResult ListMember()
         {
-            return View(await _context.accounts.ToListAsync());
+            var displaydata = _context.accounts.ToListAsync();
+            return View(displaydata);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ListMember(string Usersearch)
+        {
+            ViewData["Getaccountdetails"] = Usersearch;
+            var userquery = from x in _context.accounts 
+                            select x;
+            if (!String.IsNullOrEmpty(Usersearch))
+            {
+                userquery = userquery.Where(x => x.UName.Contains(Usersearch) || x.UEmail.Contains(Usersearch));
+            }
+            return View(await userquery.AsNoTracking().ToListAsync());
         }
 
         // GET: account/Details/5
@@ -160,10 +174,24 @@ namespace IS220M11.Controllers
 
         // GET: post
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> ListPost()
+        public IActionResult ListPost()
         {
-            var findFoundContext = _context.posts.Include(p => p.account);
-            return View(await findFoundContext.ToListAsync());
+            // var findFoundContext = _context.posts.Include(p => p.account);
+            var displaydata = _context.posts.Include(p => p.account).ToListAsync();
+            return View(displaydata);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ListPost(string Postsearch)
+        {
+            ViewData["Getpostdetails"] = Postsearch;
+            var postquery = from x in _context.posts 
+                            select x;
+            if (!String.IsNullOrEmpty(Postsearch))
+            {
+                postquery = postquery.Where(x => x.PTitle.Contains(Postsearch));
+            }
+            return View(await postquery.AsNoTracking().ToListAsync());
         }
 
         // GET: post/Details/5
